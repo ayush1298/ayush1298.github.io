@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Ayush Munot — ML engineer at IIT Kharagpur. Embeddings, retrieval, agents." />
+    <title>Ayush Munot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://esm.sh" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://ipwho.is" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,0..100;1,9..144,300..700,0..100&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body data-page="home" class="is-home">
+    <a class="skip-link" href="#intro">Skip to content</a>
+
+    <header id="site-header"></header>
+
+    <div class="home-shell">
+      <aside class="home-sidebar" id="home-sidebar" aria-label="Sections and contact"></aside>
+
+      <div class="home-content">
+        <article class="content-sheet">
+          <section id="intro" class="block block--intro">
+            <p class="intro-eyebrow" id="intro-eyebrow"></p>
+            <h1 class="intro-name" id="intro-name"></h1>
+            <p class="intro-tagline" id="intro-tagline"></p>
+            <hr class="intro-rule" />
+
+            <div class="prose" id="intro-paragraphs"></div>
+
+            <dl class="facts" id="intro-highlights"></dl>
+
+            <div class="actions">
+              <a class="action-link" id="cv-link" href="#">Read the CV</a>
+              <a class="action-link" data-internal href="projects.html">Browse projects</a>
+              <a class="action-link" data-internal href="contributions.html">Open-source work</a>
+            </div>
+          </section>
+
+          <section id="news" class="block">
+            <h2 class="section-h"><span class="section-h__n">02</span> News</h2>
+            <ul class="news-lines" id="news-list"></ul>
+          </section>
+
+          <section id="publications" class="block">
+            <h2 class="section-h"><span class="section-h__n">03</span> Publications</h2>
+            <ol class="pub-list" id="publications-list"></ol>
+          </section>
+
+          <section id="experience" class="block">
+            <h2 class="section-h"><span class="section-h__n">04</span> Experience</h2>
+            <ol class="exp-list" id="experience-list"></ol>
+          </section>
+
+          <section id="visitors" class="block block--visitors">
+            <h2 class="section-h"><span class="section-h__n">05</span> Visitors</h2>
+            <figure class="visitor-figure">
+              <div class="visitor-map-wrap">
+                <svg id="world-map" viewBox="0 0 1100 500" role="img" aria-label="World map showing visitor locations"></svg>
+              </div>
+              <figcaption class="visitor-caption" id="visitor-caption">Finding you on the map…</figcaption>
+            </figure>
+          </section>
+        </article>
+
+      </div>
+    </div>
+
+    <footer id="site-footer"></footer>
+
+    <script src="js/shared.js" type="module"></script>
+    <script src="js/layout.js" type="module"></script>
+    <script src="js/render.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "intro": "Curated interview-prep and engineering notes I maintain, plus papers I often revisit for embeddings and ML systems.",
+  "repos": [
+    {
+      "title": "ML Interview Hub",
+      "description": "Real-world AI/ML interview Q&A—LLMs, computer vision, RAG, agents, traditional ML, system design, and more.",
+      "repoUrl": "https://github.com/ayush1298/ML-Interview-Based-Blogs",
+      "liveUrl": "https://ayush1298.github.io/ML-Interview-Based-Blogs/"
+    },
+    {
+      "title": "Software Engineering Blogs",
+      "description": "Software engineering concepts and interview-oriented notes.",
+      "repoUrl": "https://github.com/ayush1298/Software-Engineering-Blogs",
+      "liveUrl": "https://ayush1298.github.io/Software-Engineering-Blogs/"
+    }
+  ],
+  "articles": [
+    {
+      "title": "MTEB: Massive Text Embedding Benchmark",
+      "author": "Muennighoff et al.",
+      "year": "2023",
+      "note": "Foundation for the embedding evaluation ecosystem I contribute to.",
+      "url": "https://arxiv.org/abs/2210.07316"
+    },
+    {
+      "title": "MAEB: Massive Audio Embedding Benchmark",
+      "author": "El Assadi et al.",
+      "year": "2026",
+      "note": "Co-authored; extends MTEB to audio embeddings at scale.",
+      "url": "https://arxiv.org/abs/2602.16008"
+    }
+  ]
+}

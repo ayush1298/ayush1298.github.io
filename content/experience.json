@@ -1,0 +1,58 @@
+[
+  {
+    "start": "May 2025",
+    "end": "July 2025",
+    "organization": "Fidelity Investments",
+    "shortOrg": "Fidelity",
+    "role": "AI Intern",
+    "location": "Bangalore, India",
+    "url": "https://www.fidelity.com",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=fidelity.com&sz=128",
+    "logoBg": "#5d8a44"
+  },
+  {
+    "start": "May 2024",
+    "end": "Jan 2025",
+    "organization": "Sourcegraph",
+    "shortOrg": "Sourcegraph",
+    "role": "ML Engineering Intern",
+    "location": "Remote",
+    "url": "https://sourcegraph.com",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=sourcegraph.com&sz=128",
+    "logoBg": "#0f111a"
+  },
+  {
+    "start": "July 2023",
+    "end": "Jan 2024",
+    "organization": "AFAR Lab, University of Cambridge",
+    "shortOrg": "Cambridge · AFAR Lab",
+    "role": "Research Assistant",
+    "location": "Remote",
+    "url": "https://www.cam.ac.uk",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=cam.ac.uk&sz=128",
+    "logoBg": "#a3262c"
+  },
+  {
+    "start": "May 2023",
+    "end": "Aug 2023",
+    "organization": "Spectrum Lab, IISc Bangalore",
+    "shortOrg": "IISc · Spectrum Lab",
+    "role": "Computer Vision Intern",
+    "location": "Remote",
+    "url": "https://iisc.ac.in",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=iisc.ac.in&sz=128",
+    "logoBg": "#1f3a64"
+  },
+  {
+    "start": "2021",
+    "end": "2026",
+    "organization": "IIT Kharagpur",
+    "shortOrg": "IIT Kharagpur",
+    "role": "B.Tech (Mech.) + M.Tech (Financial Eng.) · CSE minor · AI micro",
+    "location": "Kharagpur, India",
+    "url": "https://www.iitkgp.ac.in",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=iitkgp.ac.in&sz=128",
+    "logoBg": "#5a3f2a",
+    "kind": "education"
+  }
+]

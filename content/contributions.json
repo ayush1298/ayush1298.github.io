@@ -1,0 +1,49 @@
+{
+  "title": "Open-source contributions",
+  "blocks": [
+    {
+      "name": "MTEB (Massive Text Embedding Benchmark)",
+      "role": "Core contributor",
+      "description": "Community benchmark for text, image, and audio embedding models. I contribute features, fixes, and evaluations upstream—98+ merged PRs on embeddings-benchmark/mteb.",
+      "projectUrl": "https://github.com/embeddings-benchmark/mteb",
+      "prs": [
+        {
+          "title": "Test to ensure input_column works for all modalities",
+          "url": "https://github.com/embeddings-benchmark/mteb/pull/4637",
+          "date": "2025",
+          "summary": "Multimodal task coverage for audio/image/text input columns."
+        },
+        {
+          "title": "Refactor queries and document dataloader to allow multiple modalities",
+          "url": "https://github.com/embeddings-benchmark/mteb/pull/4232",
+          "date": "2025",
+          "summary": "Dataloader changes for cross-modal evaluation."
+        },
+        {
+          "title": "Added embedding parameter value for image and audio models",
+          "url": "https://github.com/embeddings-benchmark/mteb/pull/4167",
+          "date": "2025",
+          "summary": "Metadata for image/audio model runs on the leaderboard."
+        },
+        {
+          "title": "feat: Add tracking of run settings",
+          "url": "https://github.com/embeddings-benchmark/mteb/pull/4677",
+          "date": "2025",
+          "summary": "Reproducibility for benchmark submissions."
+        },
+        {
+          "title": "Load aggregated results from task results",
+          "url": "https://github.com/embeddings-benchmark/mteb/pull/4719",
+          "date": "2026",
+          "summary": "Leaderboard aggregation pipeline (open)."
+        },
+        {
+          "title": "Add hybrid models in MTEB",
+          "url": "https://github.com/embeddings-benchmark/mteb/pull/4706",
+          "date": "2026",
+          "summary": "Support for hybrid embedding models (open)."
+        }
+      ]
+    }
+  ]
+}

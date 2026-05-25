@@ -1,0 +1,46 @@
+{
+  "name": "Ayush Munot",
+  "initials": "AM",
+  "brandShort": "AM",
+  "markGlyph": "a.",
+  "tagline": "ML engineer · embeddings, retrieval, agents",
+  "location": "Kharagpur, IN",
+  "status": "graduating 2026",
+  "lastUpdated": "2026-05",
+  "now": "Finishing MAEB · interviewing for new-grad ML roles · reading Bishop's Deep Learning",
+  "intro": {
+    "eyebrow": "Ayush Munot · IIT Kharagpur",
+    "nameDisplay": "Ayush <em>Munot</em>",
+    "headline": "I build retrieval systems and the benchmarks that keep them honest.",
+    "paragraphs": [
+      "I'm a final-year student at IIT Kharagpur, finishing a B.Tech in Mechanical Engineering and an M.Tech in Financial Engineering, with a CSE minor and an AI micro-specialization. The actual work I care about lives in applied ML — retrieval, RAG, embeddings, computer vision, and the unglamorous engineering that makes any of it ship.",
+      "Most recently I've been interning at Fidelity Investments and Sourcegraph, and doing research with the AFAR Lab at Cambridge and IISc Bangalore. On the side I help maintain MTEB and I co-authored MAEB, a benchmark for audio embeddings that's currently under review."
+    ],
+    "highlights": [
+      { "label": "Studying", "value": "IIT Kharagpur · CGPA 8.95 / 10" },
+      { "label": "Writing", "value": "MAEB and DiffusedDINO, both under review" },
+      { "label": "Building", "value": "MTEB core contributor · retrieval benchmarks" }
+    ]
+  },
+  "homeSections": [
+    { "id": "intro", "label": "About" },
+    { "id": "news", "label": "News" },
+    { "id": "publications", "label": "Publications" },
+    { "id": "experience", "label": "Experience" },
+    { "id": "visitors", "label": "Visitors" }
+  ],
+  "pages": [
+    { "label": "Projects", "href": "projects.html", "page": "projects" },
+    { "label": "Contributions", "href": "contributions.html", "page": "contributions" },
+    { "label": "Reading", "href": "reading.html", "page": "reading" }
+  ],
+  "links": [
+    { "type": "email",    "label": "Email",          "url": "mailto:munotayush6@gmail.com",                    "display": "munotayush6@gmail.com" },
+    { "type": "github",   "label": "GitHub",         "url": "https://github.com/ayush1298",                    "display": "github.com/ayush1298" },
+    { "type": "linkedin", "label": "LinkedIn",       "url": "https://www.linkedin.com/in/ayush-munot",         "display": "linkedin.com/in/ayush-munot" },
+    { "type": "twitter",  "label": "Twitter / X",    "url": "https://x.com/MunotAyush6",                                                  "display": "@MunotAyush6" },
+    { "type": "scholar",  "label": "Google Scholar", "url": "https://scholar.google.com/citations?user=-86DdywAAAAJ&hl=en",               "display": "Google Scholar" }
+  ],
+  "cvUrl": "https://drive.google.com/file/d/1Bthzu1jA6Pfu_5F7sUVIikMdNXPK16B9/view?usp=sharing",
+  "footerNote": "Personal site — content sourced from CV and project repos."
+}

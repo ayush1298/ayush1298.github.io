@@ -1,0 +1,19 @@
+[
+  {
+    "year": "2026",
+    "title": "MAEB: Massive Audio Embedding Benchmark",
+    "authors": "Adnan El Assadi, Isaac Chung, Chenghao Xiao, Roman Solomatin, Animesh Jha, Rahul Chand, Silky Singh, Kaitlyn Wang, Ali Sartaz Khan, Marc Moussa Nasser, Sufen Fong, Pengfei He, Alan Xiao, Ayush Sunil Munot, Aditya Shrivastava, Artem Gazizov, Niklas Muennighoff, Kenneth Enevoldsen",
+    "venue": "Under review, NeurIPS 2026",
+    "links": [
+      { "label": "arXiv", "url": "https://arxiv.org/abs/2602.16008" },
+      { "label": "MTEB", "url": "https://github.com/embeddings-benchmark/mteb" }
+    ]
+  },
+  {
+    "year": "2026",
+    "title": "DiffusedDINO: Fine-Grained Visual Perception for Puzzle Solving via DINO",
+    "authors": "Ayush Sunil Munot et al.",
+    "venue": "Under review, NeurIPS 2026",
+    "links": []
+  }
+]

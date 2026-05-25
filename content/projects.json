@@ -1,0 +1,44 @@
+[
+  {
+    "year": "2026",
+    "title": "Multimodal AI Notes Platform (PWA)",
+    "role": "Self-project",
+    "description": "Multimodal note-taking PWA with FastAPI and Supabase—text, audio, and image ingestion; Gemini parsing, pgvector semantic search, signed URLs, TTS summaries, deep-link sharing, and MCP integrations.",
+    "tags": ["FastAPI", "Supabase", "Gemini", "pgvector", "MCP", "PWA"],
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/ayush1298/book-notes-mcp" }
+    ],
+    "featured": true
+  },
+  {
+    "year": "2025",
+    "title": "Multi-Agent AI for Interactive Physics Simulations",
+    "role": "Self-project",
+    "description": "Self-correcting multi-agent system for physics simulation code generation with sandbox execution and dependency management; expanded into a multimodal learning platform with context-aware chat and voice/image inputs.",
+    "tags": ["Multi-agent", "LLM", "Physics simulation", "Code sandbox"],
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/ayush1298/AI-Simulator" }
+    ],
+    "featured": true
+  },
+  {
+    "year": "2023",
+    "title": "Adobe Behaviour Simulation Challenge — Gold",
+    "role": "Inter IIT Tech Meet 12.0",
+    "description": "MLP + Transformer on BERT with SAM losses and PCA-based inference for tweet-like engagement prediction; supervised routing across three fine-tuned LLMs and CLIP for generation. Achieved 2262.33 RMSE on likes and outperformed GPT-4 on content metrics (0.24 BLEU, 0.25 ROUGE).",
+    "tags": ["BERT", "Transformers", "CLIP", "LLM routing"],
+    "links": [],
+    "featured": false
+  },
+  {
+    "year": "2023",
+    "title": "STAPLECAM — Endoscopic Segmentation",
+    "role": "Spectrum Lab, IISc",
+    "description": "EM-based endoscopic segmentation integrating multiple CAM methods; ResNet-152 fine-tuning with cross-entropy and Otsu binarization on public endoscopy datasets.",
+    "tags": ["Computer vision", "CAM", "ResNet", "Medical imaging"],
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/ayush1298/StapleCAM" }
+    ],
+    "featured": false
+  }
+]
