@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <script>window.location.replace("index.html#reading");</script>
+    <script>
+      sessionStorage.setItem("spa_redirect", "reading");
+      window.location.replace("index.html");
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Reading list and writing repos curated by Ayush Munot." />
     <title>Reading · Ayush Munot</title>

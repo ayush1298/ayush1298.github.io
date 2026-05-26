@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <script>window.location.replace("index.html#contributions");</script>
+    <script>
+      sessionStorage.setItem("spa_redirect", "contributions");
+      window.location.replace("index.html");
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Open-source contributions by Ayush Munot." />
     <title>Contributions · Ayush Munot</title>

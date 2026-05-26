@@ -11,13 +11,13 @@ export function renderSiteHeader(site, activePage) {
   const pageLinks = (site.pages || [])
     .map((item) => {
       const active = item.page === activePage ? ' aria-current="page"' : "";
-      return `<a href="${escapeHtml(item.href)}" class="header-link"${active}>${escapeHtml(item.label)}</a>`;
+      return `<a href="#" data-page="${escapeHtml(item.page)}" class="header-link"${active}>${escapeHtml(item.label)}</a>`;
     })
     .join("");
 
   mount.innerHTML = `
     <div class="site-header">
-      <a class="site-brand" href="#">${escapeHtml(site.brandShort || "AM")} <span class="site-brand__sep">—</span> Ayush Munot</a>
+      <a class="site-brand" href="#" data-page="home">${escapeHtml(site.brandShort || "AM")} <span class="site-brand__sep">—</span> Ayush Munot</a>
       <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="header-menu" aria-label="Toggle menu">
         <span class="nav-toggle__box">
           <span class="nav-toggle__inner"></span>

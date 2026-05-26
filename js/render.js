@@ -151,36 +151,33 @@ function renderExperience(items) {
     .join("");
 }
 
-async function handleRoute() {
+async function switchPage(page) {
   try {
-    const hash = window.location.hash || "#home";
     const data = await getSiteData();
     
     // Update page title tag dynamically
-    document.title = (hash === "#home" || hash === "#" || !hash)
+    document.title = page === "home"
       ? data.site.name
-      : `${pageTitle(hash.replace("#", ""))} · ${data.site.name}`;
+      : `${pageTitle(page)} · ${data.site.name}`;
 
     const homeView = document.getElementById("home-view");
     const subpageView = document.getElementById("subpage-view");
 
     // Clear and set active navigation links in header
-    document.querySelectorAll(".header-link").forEach(a => {
+    document.querySelectorAll(".header-link, .site-brand").forEach(a => {
       a.removeAttribute("aria-current");
-      // Match route to href hash
-      if (a.getAttribute("href") === hash) {
+      if (a.getAttribute("data-page") === page) {
         a.setAttribute("aria-current", "page");
       }
     });
 
-    if (hash === "#home" || hash === "#" || !hash) {
+    if (page === "home") {
       if (homeView) homeView.style.display = "grid";
       if (subpageView) subpageView.style.display = "none";
     } else {
       if (homeView) homeView.style.display = "none";
       if (subpageView) subpageView.style.display = "block";
 
-      const page = hash.replace("#", "");
       const titleEl = document.getElementById("subpage-title");
       const leadEl = document.getElementById("subpage-lead");
       const contentEl = document.getElementById("subpage-content");
@@ -244,11 +241,24 @@ async function main() {
     
     initVisitorMap();
 
-    // Listen to tab routing
-    window.addEventListener("hashchange", handleRoute);
-    
-    // Run router on first load
-    handleRoute();
+    // Listen to tab clicks and prevent default URL navigation
+    document.addEventListener("click", (e) => {
+      const target = e.target.closest("[data-page]");
+      if (!target) return;
+
+      e.preventDefault();
+      const page = target.getAttribute("data-page");
+      switchPage(page);
+    });
+
+    // Run router on first load (check if redirect requested)
+    const redirectPage = sessionStorage.getItem("spa_redirect");
+    if (redirectPage) {
+      sessionStorage.removeItem("spa_redirect");
+      switchPage(redirectPage);
+    } else {
+      switchPage("home");
+    }
 
   } catch (err) {
     console.error(err);
