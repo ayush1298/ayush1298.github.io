@@ -17,8 +17,3 @@
 | `content/projects.json` | Projects page |
 | `content/contributions.json` | MTEB PRs, etc. |
 | `content/reading.json` | Blog repos + recommended articles |
-
-
-## Deploy
-
-GitHub Pages → branch `main`, folder `/ (root)`.
