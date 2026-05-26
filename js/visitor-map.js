@@ -4,13 +4,11 @@
  * prior visits in localStorage, and seeds a handful of sample
  * cities so the map never looks empty on first load.
  *
- * Renderer: d3-geo + topojson-client + world-atlas (all via esm.sh / jsdelivr).
+ * Highly optimized vanilla JS implementation with no runtime D3 dependencies.
  */
 
 const WIDTH = 1100;
 const HEIGHT = 500;
-const GRID_X = 130;   // longitude samples
-const GRID_Y = 60;    // latitude samples
 const DOT_R  = 0.95;
 const STORAGE_KEY = "am.visitors.v1";
 
@@ -43,71 +41,63 @@ export async function initVisitorMap() {
   if (!svg) return;
 
   try {
-    // 1. Pull dependencies + world topology in parallel
-    const [selectionMod, geoMod, topoMod, worldRes] = await Promise.all([
-      import("https://esm.sh/d3-selection@3"),
-      import("https://esm.sh/d3-geo@3"),
-      import("https://esm.sh/topojson-client@3"),
-      fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"),
-    ]);
+    svg.setAttribute("viewBox", `0 0 ${WIDTH} ${HEIGHT}`);
+    svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
 
-    const { select } = selectionMod;
-    const { geoEquirectangular, geoContains } = geoMod;
-    const { feature } = topoMod;
-    const world = await worldRes.json();
-    const land = feature(world, world.objects.countries);
+    // 1. Fetch pre-calculated dots
+    const res = await fetch("content/map-dots.json");
+    if (!res.ok) throw new Error("Failed to load map-dots.json");
+    const landDots = await res.json();
 
-    const projection = geoEquirectangular()
-      .scale(WIDTH / (2 * Math.PI))
-      .translate([WIDTH / 2, HEIGHT / 2 + 30]);
-
-    const svgSel = select(svg)
-      .attr("viewBox", `0 0 ${WIDTH} ${HEIGHT}`)
-      .attr("preserveAspectRatio", "xMidYMid meet");
-
-    // 2. Build land dot grid by sampling lat/lng cells through countries
-    const landDots = [];
-    for (let xi = 0; xi < GRID_X; xi++) {
-      const lng = -180 + (xi + 0.5) * (360 / GRID_X);
-      for (let yi = 0; yi < GRID_Y; yi++) {
-        const lat = 90 - (yi + 0.5) * (180 / GRID_Y);
-        if (lat > 83 || lat < -60) continue; // skip the polar caps
-        if (geoContains(land, [lng, lat])) {
-          const p = projection([lng, lat]);
-          if (p) landDots.push(p);
-        }
-      }
+    // 2. Render land grid circles
+    const landGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    landGroup.setAttribute("class", "map-land");
+    
+    let dotsHtml = "";
+    for (let i = 0; i < landDots.length; i++) {
+      const d = landDots[i];
+      dotsHtml += `<circle cx="${d[0]}" cy="${d[1]}" r="${DOT_R}"></circle>`;
     }
+    landGroup.innerHTML = dotsHtml;
+    svg.appendChild(landGroup);
 
-    svgSel
-      .append("g")
-      .attr("class", "map-land")
-      .selectAll("circle")
-      .data(landDots)
-      .join("circle")
-      .attr("cx", (d) => d[0])
-      .attr("cy", (d) => d[1])
-      .attr("r", DOT_R);
+    // 3. Create visitors group
+    const visitorsGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    visitorsGroup.setAttribute("class", "map-visitors");
+    svg.appendChild(visitorsGroup);
 
-    const visitorsLayer = svgSel.append("g").attr("class", "map-visitors");
+    // Math-based Equirectangular Projection
+    const scale = WIDTH / (2 * Math.PI);
+    function project([lng, lat]) {
+      const lambda = lng * Math.PI / 180;
+      const phi = lat * Math.PI / 180;
+      const x = WIDTH / 2 + scale * lambda;
+      const y = (HEIGHT / 2 + 30) - scale * phi;
+      return [x, y];
+    }
 
     function plotPin({ lat, lng }, { you = false } = {}) {
-      const p = projection([lng, lat]);
+      const p = project([lng, lat]);
       if (!p) return;
-      const g = visitorsLayer
-        .append("g")
-        .attr("class", you ? "pin pin--you" : "pin");
+
+      const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      g.setAttribute("class", you ? "pin pin--you" : "pin");
+
+      let html = "";
       if (you) {
-        g.append("circle").attr("class", "pin__pulse").attr("cx", p[0]).attr("cy", p[1]).attr("r", 14);
+        html += `<circle class="pin__pulse" cx="${p[0]}" cy="${p[1]}" r="14"></circle>`;
       }
-      g.append("circle").attr("class", "pin__core").attr("cx", p[0]).attr("cy", p[1]).attr("r", you ? 4.5 : 3);
+      html += `<circle class="pin__core" cx="${p[0]}" cy="${p[1]}" r="${you ? 4.5 : 3}"></circle>`;
+      
+      g.innerHTML = html;
+      visitorsGroup.appendChild(g);
     }
 
-    // 3. Plot sample + persisted visitors
+    // 4. Plot sample + persisted visitors
     const stored = readStored();
     [...SAMPLE_VISITORS, ...stored].forEach((v) => plotPin(v));
 
-    // 4. Pin the current visitor — try ipwho.is first, fall back to ipapi.co
+    // 5. Pin the current visitor
     const me = await locateVisitor();
 
     if (me) {
@@ -131,7 +121,6 @@ export async function initVisitorMap() {
 }
 
 async function locateVisitor() {
-  // Provider 1: ipwho.is — no key, generous rate limits, returns latitude/longitude
   try {
     const r = await fetch("https://ipwho.is/", { cache: "no-store" });
     if (r.ok) {
@@ -149,7 +138,6 @@ async function locateVisitor() {
     /* fall through */
   }
 
-  // Provider 2: ipapi.co — fallback
   try {
     const r = await fetch("https://ipapi.co/json/", { cache: "no-store" });
     if (r.ok) {
@@ -187,7 +175,11 @@ function writeStored(arr) {
 }
 
 function escapeText(s) {
-  const d = document.createElement("div");
-  d.textContent = String(s);
-  return d.innerHTML;
+  if (s == null) return "";
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
