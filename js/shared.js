@@ -12,9 +12,12 @@ export async function loadJson(path) {
 
 export function escapeHtml(str) {
   if (str == null) return "";
-  const div = document.createElement("div");
-  div.textContent = String(str);
-  return div.innerHTML;
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
 
 export function initMobileMenu() {

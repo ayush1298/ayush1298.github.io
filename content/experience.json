@@ -7,8 +7,12 @@
     "role": "AI Intern",
     "location": "Bangalore, India",
     "url": "https://www.fidelity.com",
-    "logoUrl": "https://www.google.com/s2/favicons?domain=fidelity.com&sz=128",
-    "logoBg": "#5d8a44"
+    "logoUrl": "https://logo.clearbit.com/fidelity.com",
+    "logoBg": "#5d8a44",
+    "bullets": [
+      "Worked on AI/ML solutions for financial services applications.",
+      "Applied retrieval and embedding techniques to internal data pipelines."
+    ]
   },
   {
     "start": "May 2024",
@@ -18,8 +22,12 @@
     "role": "ML Engineering Intern",
     "location": "Remote",
     "url": "https://sourcegraph.com",
-    "logoUrl": "https://www.google.com/s2/favicons?domain=sourcegraph.com&sz=128",
-    "logoBg": "#0f111a"
+    "logoUrl": "https://logo.clearbit.com/sourcegraph.com",
+    "logoBg": "#0f111a",
+    "bullets": [
+      "Built and improved ML systems powering code search and intelligence at scale.",
+      "Contributed to embedding-based retrieval pipelines for the Cody AI assistant."
+    ]
   },
   {
     "start": "July 2023",
@@ -29,8 +37,12 @@
     "role": "Research Assistant",
     "location": "Remote",
     "url": "https://www.cam.ac.uk",
-    "logoUrl": "https://www.google.com/s2/favicons?domain=cam.ac.uk&sz=128",
-    "logoBg": "#a3262c"
+    "logoUrl": "https://logo.clearbit.com/cam.ac.uk",
+    "logoBg": "#a3262c",
+    "bullets": [
+      "Researched fine-grained visual perception and puzzle-solving using DINO features.",
+      "Co-authored DiffusedDINO, currently under review at NeurIPS 2026."
+    ]
   },
   {
     "start": "May 2023",
@@ -40,19 +52,27 @@
     "role": "Computer Vision Intern",
     "location": "Remote",
     "url": "https://iisc.ac.in",
-    "logoUrl": "https://www.google.com/s2/favicons?domain=iisc.ac.in&sz=128",
-    "logoBg": "#1f3a64"
+    "logoUrl": "https://logo.clearbit.com/iisc.ac.in",
+    "logoBg": "#1f3a64",
+    "bullets": [
+      "Developed STAPLECAM — EM-based endoscopic segmentation integrating multiple CAM methods.",
+      "Fine-tuned ResNet-152 with cross-entropy and Otsu binarization on public endoscopy datasets."
+    ]
   },
   {
-    "start": "2021",
-    "end": "2026",
+    "start": "Jul 2021",
+    "end": "May 2026",
     "organization": "IIT Kharagpur",
     "shortOrg": "IIT Kharagpur",
     "role": "B.Tech (Mech.) + M.Tech (Financial Eng.) · CSE minor · AI micro",
     "location": "Kharagpur, India",
     "url": "https://www.iitkgp.ac.in",
-    "logoUrl": "https://www.google.com/s2/favicons?domain=iitkgp.ac.in&sz=128",
+    "logoUrl": "https://logo.clearbit.com/iitkgp.ac.in",
     "logoBg": "#5a3f2a",
-    "kind": "education"
+    "kind": "education",
+    "bullets": [
+      "CGPA: 8.95 / 10 — Computer Science minor and AI micro-specialization.",
+      "Gold medal at Adobe Behaviour Simulation Challenge, Inter IIT Tech Meet 12.0."
+    ]
   }
 ]

@@ -18,7 +18,11 @@ export function renderSiteHeader(site, activePage) {
   mount.innerHTML = `
     <div class="site-header">
       <a class="site-brand" href="index.html">${escapeHtml(site.brandShort || "AM")} <span class="site-brand__sep">—</span> Ayush Munot</a>
-      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="header-menu">Menu</button>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="header-menu" aria-label="Toggle menu">
+        <span class="nav-toggle__box">
+          <span class="nav-toggle__inner"></span>
+        </span>
+      </button>
       <div class="header-menu" id="header-menu">
         <nav class="header-pages" aria-label="Pages">${pageLinks}</nav>
       </div>
@@ -102,6 +106,16 @@ export async function bootPage(activePage, loadContent) {
   if (activePage === "home") {
     renderHomeSidebar(site);
     initHomeSectionNav();
+  } else {
+    // Add a back link on subpages
+    const main = document.querySelector(".subpage");
+    if (main && !main.querySelector(".subpage-back")) {
+      const back = document.createElement("a");
+      back.className = "subpage-back";
+      back.href = "index.html";
+      back.textContent = "Home";
+      main.insertBefore(back, main.firstChild);
+    }
   }
 
   return site;

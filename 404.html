@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Page not found — Ayush Munot" />
+    <title>404 — Ayush Munot</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,0..100;1,9..144,300..700,0..100&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <style>
+      .four-oh-four {
+        position: relative;
+        z-index: 1;
+        max-width: 38rem;
+        margin: 6rem auto 4rem;
+        padding: 0 1.5rem;
+        text-align: center;
+      }
+      .four-oh-four__code {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin: 0 0 1rem;
+      }
+      .four-oh-four h1 {
+        font-family: var(--serif);
+        font-variation-settings: "opsz" 144, "SOFT" 50, "wght" 500;
+        font-size: clamp(2.2rem, 5vw, 3.5rem);
+        letter-spacing: -0.025em;
+        line-height: 1.05;
+        margin: 0 0 1.5rem;
+      }
+      .four-oh-four p {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 1.1rem;
+        color: var(--ink-2);
+        margin: 0 0 2.5rem;
+        line-height: 1.55;
+      }
+      .four-oh-four__link {
+        font-family: var(--sans);
+        font-size: 0.92rem;
+        color: var(--ink);
+        text-decoration: none;
+        border-bottom: 1px solid var(--ink);
+        padding-bottom: 1px;
+        transition: color 0.15s, border-color 0.15s;
+      }
+      .four-oh-four__link::after {
+        content: " →";
+        font-family: var(--mono);
+        font-size: 0.85em;
+        color: var(--ink-3);
+        transition: color 0.15s, transform 0.15s;
+      }
+      .four-oh-four__link:hover {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+      }
+      .four-oh-four__link:hover::after {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="four-oh-four">
+      <p class="four-oh-four__code">§ 404</p>
+      <h1>Page not found</h1>
+      <p>The page you're looking for doesn't exist, or it's been moved somewhere else.</p>
+      <a class="four-oh-four__link" href="index.html">Back to the home page</a>
+    </div>
+  </body>
+</html>

@@ -41,6 +41,6 @@
     { "type": "twitter",  "label": "Twitter / X",    "url": "https://x.com/MunotAyush6",                                                  "display": "@MunotAyush6" },
     { "type": "scholar",  "label": "Google Scholar", "url": "https://scholar.google.com/citations?user=-86DdywAAAAJ&hl=en",               "display": "Google Scholar" }
   ],
-  "cvUrl": "https://drive.google.com/file/d/1Bthzu1jA6Pfu_5F7sUVIikMdNXPK16B9/view?usp=sharing",
+  "cvUrl": "assets/Ayush_Munot_ML_CV.pdf",
   "footerNote": "Personal site — content sourced from CV and project repos."
 }

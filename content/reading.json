@@ -28,6 +28,27 @@
       "year": "2026",
       "note": "Co-authored; extends MTEB to audio embeddings at scale.",
       "url": "https://arxiv.org/abs/2602.16008"
+    },
+    {
+      "title": "Emerging Properties in Self-Supervised Vision Transformers (DINO)",
+      "author": "Caron et al.",
+      "year": "2021",
+      "note": "The core DINO self-supervised ViT paper—lays the foundation for our DiffusedDINO research.",
+      "url": "https://arxiv.org/abs/2104.14294"
+    },
+    {
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "author": "Lewis et al.",
+      "year": "2020",
+      "note": "Seminal paper on combining parametric and non-parametric memory for RAG tasks.",
+      "url": "https://arxiv.org/abs/2005.11401"
+    },
+    {
+      "title": "Attention Is All You Need",
+      "author": "Vaswani et al.",
+      "year": "2017",
+      "note": "The foundational paper introducing the Transformer architecture.",
+      "url": "https://arxiv.org/abs/1706.03762"
     }
   ]
 }
