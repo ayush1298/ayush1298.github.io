@@ -7,7 +7,7 @@
     "role": "AI Intern",
     "location": "Bangalore, India",
     "url": "https://www.fidelity.com",
-    "logoUrl": "assets/logos/fidelity.png",
+    "logoUrl": "assets/logos/fidelity-com-logo.png",
     "logoBg": "#5d8a44",
     "bullets": [
       "Worked on AI/ML solutions for financial services applications.",
@@ -22,7 +22,7 @@
     "role": "ML Engineering Intern",
     "location": "Remote",
     "url": "https://sourcegraph.com",
-    "logoUrl": "assets/logos/sourcegraph.png",
+    "logoUrl": "assets/logos/sourcegraph-com-logo.png",
     "logoBg": "#0f111a",
     "bullets": [
       "Built and improved ML systems powering code search and intelligence at scale.",
@@ -37,7 +37,7 @@
     "role": "Research Assistant",
     "location": "Remote",
     "url": "https://www.cam.ac.uk",
-    "logoUrl": "assets/logos/cambridge.png",
+    "logoUrl": "assets/logos/cam-ac-uk-logo.png",
     "logoBg": "#a3262c",
     "bullets": [
       "Researched fine-grained visual perception and puzzle-solving using DINO features.",
@@ -52,7 +52,7 @@
     "role": "Computer Vision Intern",
     "location": "Remote",
     "url": "https://iisc.ac.in",
-    "logoUrl": "assets/logos/iisc.png",
+    "logoUrl": "assets/logos/iisc-ac-in-logo.png",
     "logoBg": "#1f3a64",
     "bullets": [
       "Developed STAPLECAM — EM-based endoscopic segmentation integrating multiple CAM methods.",
@@ -67,7 +67,7 @@
     "role": "B.Tech (Mech.) + M.Tech (Financial Eng.) · CSE minor · AI micro",
     "location": "Kharagpur, India",
     "url": "https://www.iitkgp.ac.in",
-    "logoUrl": "assets/logos/iitkgp.png",
+    "logoUrl": "assets/logos/iitkgp-ac-in-logo.png",
     "logoBg": "#5a3f2a",
     "kind": "education",
     "bullets": [
