@@ -1,6 +1,28 @@
-import { loadJson, escapeHtml } from "./shared.js";
+import { loadJson, escapeHtml, renderProjects, renderContributions, renderReading } from "./shared.js";
 import { bootPage } from "./layout.js";
 import { initVisitorMap } from "./visitor-map.js";
+
+// Cached site data to avoid refetching on tab switch
+let cachedData = null;
+
+async function getSiteData() {
+  if (cachedData) return cachedData;
+  const [site, news, publications, experience, projects, contributions, reading] = await Promise.all([
+    loadJson("site.json"),
+    loadJson("news.json"),
+    loadJson("publications.json"),
+    loadJson("experience.json"),
+    loadJson("projects.json"),
+    loadJson("contributions.json"),
+    loadJson("reading.json"),
+  ]);
+  cachedData = { site, news, publications, experience, projects, contributions, reading };
+  return cachedData;
+}
+
+function pageTitle(page) {
+  return { projects: "Projects", contributions: "Contributions", reading: "Reading" }[page] || page;
+}
 
 function renderIntro(site) {
   const eyebrow = document.getElementById("intro-eyebrow");
@@ -8,7 +30,6 @@ function renderIntro(site) {
 
   const name = document.getElementById("intro-name");
   if (name) {
-    // Allow a soft accent on a fragment of the name via the JSON `nameDisplay`.
     name.innerHTML = site.intro.nameDisplay || escapeHtml(site.name);
   }
 
@@ -69,7 +90,6 @@ function renderPublications(items) {
         )
         .join("");
 
-      // Bold the author's own name (Ayush ...) inline.
       const authors = (pub.authors || "").replace(
         /(Ayush[^,.;]*)/,
         "<strong>$1</strong>"
@@ -131,35 +151,105 @@ function renderExperience(items) {
     .join("");
 }
 
-async function main() {
+async function handleRoute() {
   try {
-    await bootPage("home", async () => {
-      const [site, news, publications, experience] = await Promise.all([
-        loadJson("site.json"),
-        loadJson("news.json"),
-        loadJson("publications.json"),
-        loadJson("experience.json"),
-      ]);
-      renderIntro(site);
-      renderNews(news);
-      renderPublications(publications);
-      renderExperience(experience);
-      return site;
+    const hash = window.location.hash || "#home";
+    const data = await getSiteData();
+    
+    // Update page title tag dynamically
+    document.title = (hash === "#home" || hash === "#" || !hash)
+      ? data.site.name
+      : `${pageTitle(hash.replace("#", ""))} · ${data.site.name}`;
+
+    const homeView = document.getElementById("home-view");
+    const subpageView = document.getElementById("subpage-view");
+
+    // Clear and set active navigation links in header
+    document.querySelectorAll(".header-link").forEach(a => {
+      a.removeAttribute("aria-current");
+      // Match route to href hash
+      if (a.getAttribute("href") === hash) {
+        a.setAttribute("aria-current", "page");
+      }
     });
 
-    initVisitorMap();
+    if (hash === "#home" || hash === "#" || !hash) {
+      if (homeView) homeView.style.display = "grid";
+      if (subpageView) subpageView.style.display = "none";
+    } else {
+      if (homeView) homeView.style.display = "none";
+      if (subpageView) subpageView.style.display = "block";
 
-    // Add privacy note under the visitor map
-    const visitorSection = document.getElementById("visitors");
-    if (visitorSection) {
-      const existing = visitorSection.querySelector(".visitor-privacy");
-      if (!existing) {
-        const note = document.createElement("p");
-        note.className = "visitor-privacy";
-        note.textContent = "Your approximate location is determined via your IP address to place a pin. No data is sent to or stored on our servers.";
-        visitorSection.querySelector(".visitor-figure")?.appendChild(note);
+      const page = hash.replace("#", "");
+      const titleEl = document.getElementById("subpage-title");
+      const leadEl = document.getElementById("subpage-lead");
+      const contentEl = document.getElementById("subpage-content");
+
+      // Reset content area to trigger transition fade-ins
+      if (contentEl) contentEl.innerHTML = "";
+
+      if (page === "projects") {
+        if (titleEl) titleEl.textContent = "Projects";
+        if (leadEl) leadEl.textContent = "A working notebook of things I've shipped, prototyped, or studied — ML systems, retrieval, and a few side experiments.";
+        if (contentEl) {
+          const list = document.createElement("ul");
+          list.className = "projects-list";
+          list.id = "projects-list";
+          contentEl.appendChild(list);
+          renderProjects(data.projects);
+        }
+      } else if (page === "contributions") {
+        if (titleEl) titleEl.textContent = "Contributions";
+        if (leadEl) leadEl.textContent = "Patches, evaluations, and tasks I've added to open-source projects — mostly retrieval and embedding benchmarks.";
+        if (contentEl) {
+          const root = document.createElement("div");
+          root.id = "contributions-root";
+          contentEl.appendChild(root);
+          renderContributions(data.contributions);
+        }
+      } else if (page === "reading") {
+        if (titleEl) titleEl.textContent = "Reading";
+        if (leadEl) leadEl.textContent = "A small library of essays I keep returning to, plus the repos where I write up what I've been reading.";
+        if (contentEl) {
+          const root = document.createElement("div");
+          root.id = "reading-full";
+          contentEl.appendChild(root);
+          renderReading(data.reading);
+        }
       }
     }
+
+    // Scroll smoothly to top on tab switch
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } catch (err) {
+    console.error(err);
+    document.querySelector(".content-sheet, .subpage")?.insertAdjacentHTML(
+      "afterbegin",
+      `<p role="alert" class="load-error">Could not load content. Try refreshing or running a local server.</p>`
+    );
+  }
+}
+
+async function main() {
+  try {
+    const data = await getSiteData();
+    
+    // Boot the layouts
+    await bootPage("home", async () => data.site);
+    
+    renderIntro(data.site);
+    renderNews(data.news);
+    renderPublications(data.publications);
+    renderExperience(data.experience);
+    
+    initVisitorMap();
+
+    // Listen to tab routing
+    window.addEventListener("hashchange", handleRoute);
+    
+    // Run router on first load
+    handleRoute();
+
   } catch (err) {
     console.error(err);
     document.querySelector(".content-sheet")?.insertAdjacentHTML(

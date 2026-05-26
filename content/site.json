@@ -30,9 +30,9 @@
     { "id": "visitors", "label": "Visitors" }
   ],
   "pages": [
-    { "label": "Projects", "href": "projects.html", "page": "projects" },
-    { "label": "Contributions", "href": "contributions.html", "page": "contributions" },
-    { "label": "Reading", "href": "reading.html", "page": "reading" }
+    { "label": "Projects", "href": "#projects", "page": "projects" },
+    { "label": "Contributions", "href": "#contributions", "page": "contributions" },
+    { "label": "Reading", "href": "#reading", "page": "reading" }
   ],
   "links": [
     { "type": "email",    "label": "Email",          "url": "mailto:munotayush6@gmail.com",                    "display": "munotayush6@gmail.com" },

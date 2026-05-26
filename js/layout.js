@@ -17,7 +17,7 @@ export function renderSiteHeader(site, activePage) {
 
   mount.innerHTML = `
     <div class="site-header">
-      <a class="site-brand" href="index.html">${escapeHtml(site.brandShort || "AM")} <span class="site-brand__sep">—</span> Ayush Munot</a>
+      <a class="site-brand" href="#">${escapeHtml(site.brandShort || "AM")} <span class="site-brand__sep">—</span> Ayush Munot</a>
       <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="header-menu" aria-label="Toggle menu">
         <span class="nav-toggle__box">
           <span class="nav-toggle__inner"></span>
