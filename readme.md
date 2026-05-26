@@ -18,11 +18,6 @@
 | `content/contributions.json` | MTEB PRs, etc. |
 | `content/reading.json` | Blog repos + recommended articles |
 
-## Preview
-
-```bash
-python3 -m http.server 8080
-```
 
 ## Deploy
 
