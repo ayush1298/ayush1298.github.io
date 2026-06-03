@@ -1489,10 +1489,14 @@ code {
     var(--paper);
   border: 1px solid var(--rule);
   border-radius: 2px;
-  padding: 1rem 0.75rem 0.5rem;
+  padding: 1.5rem 0.75rem;
   position: relative;
   isolation: isolate;   /* keep page grain from bleeding through */
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
 }
 
 /* Corner ticks — gives the map a "plate" feel */
@@ -1513,60 +1517,18 @@ code {
   border-left: none; border-top: none;
 }
 
-#world-map {
-  display: block;
-  width: 100%;
-  height: auto;
+/* Center and scale the simple visitor map widget */
+.visitor-map-wrap > a {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
 }
 
-#world-map .map-land circle {
-  fill: var(--ink-3);
-  opacity: 0.55;
-}
-
-#world-map .pin .pin__core {
-  fill: var(--accent);
-  opacity: 0.55;
-}
-
-#world-map .pin--you .pin__core {
-  fill: var(--accent);
-  opacity: 1;
-  stroke: #fffaf0;
-  stroke-width: 1.5;
-  filter: drop-shadow(0 0 6px rgba(161, 62, 16, 0.55));
-}
-
-#world-map .pin--you .pin__pulse {
-  fill: var(--accent);
-  opacity: 0.25;
-  transform-origin: center;
-  transform-box: fill-box;
-  animation: pinPulse 2.4s ease-out infinite;
-}
-
-@keyframes pinPulse {
-  0%   { transform: scale(0.4); opacity: 0.4; }
-  100% { transform: scale(1.5); opacity: 0; }
-}
-
-.visitor-caption {
-  font-family: var(--serif);
-  font-style: italic;
-  font-variation-settings: "opsz" 24, "SOFT" 100;
-  font-size: 1rem;
-  color: var(--ink-2);
-  margin: 1rem 0.25rem 0;
-  line-height: 1.55;
-  max-width: 42rem;
-}
-
-.visitor-caption strong {
-  font-style: normal;
-  color: var(--ink);
-  font-weight: 600;
-  background: linear-gradient(transparent 60%, rgba(245, 215, 122, 0.5) 60%);
-  padding: 0 0.1em;
+.visitor-map-wrap img {
+  max-width: 100%;
+  height: auto !important;
+  border-radius: 2px;
 }
 
 /* =================================================
@@ -1732,15 +1694,6 @@ code {
   .visitor-map-wrap::after {
     border-color: var(--ink-3);
     opacity: 0.3;
-  }
-
-  #world-map .map-land circle {
-    fill: var(--ink-3);
-    opacity: 0.4;
-  }
-
-  .visitor-caption strong {
-    background: linear-gradient(transparent 60%, rgba(90, 74, 42, 0.5) 60%);
   }
 
   /* Publication author highlight */

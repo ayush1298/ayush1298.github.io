@@ -1,6 +1,5 @@
 import { loadJson, escapeHtml, renderProjects, renderContributions, renderReading } from "./shared.js";
 import { bootPage } from "./layout.js";
-import { initVisitorMap } from "./visitor-map.js";
 
 // Cached site data to avoid refetching on tab switch
 let cachedData = null;
@@ -238,8 +237,6 @@ async function main() {
     renderNews(data.news);
     renderPublications(data.publications);
     renderExperience(data.experience);
-    
-    initVisitorMap();
 
     // Listen to tab clicks and prevent default URL navigation
     document.addEventListener("click", (e) => {
