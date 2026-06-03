@@ -1484,9 +1484,7 @@ code {
 }
 
 .visitor-map-wrap {
-  background:
-    radial-gradient(ellipse 70% 80% at 50% 55%, rgba(255, 252, 244, 0.95) 0%, rgba(255, 252, 244, 0.85) 60%, rgba(255, 252, 244, 0.6) 100%),
-    var(--paper);
+  background: var(--paper);
   border: 1px solid var(--rule);
   border-radius: 2px;
   padding: 1.5rem 0.75rem;
@@ -1685,9 +1683,7 @@ code {
 
   /* Visitor map */
   .visitor-map-wrap {
-    background:
-      radial-gradient(ellipse 70% 80% at 50% 55%, rgba(26, 24, 22, 0.95) 0%, rgba(26, 24, 22, 0.85) 60%, rgba(26, 24, 22, 0.6) 100%),
-      var(--paper);
+    background: var(--paper);
   }
 
   .visitor-map-wrap::before,
