@@ -348,9 +348,7 @@ code {
 .sidebar-nav li { counter-increment: sec; }
 
 .sidebar-nav a {
-  display: grid;
-  grid-template-columns: 1.5rem 1fr;
-  align-items: baseline;
+  display: block;
   padding: 0.3rem 0;
   color: var(--ink-2);
   font-size: 0.85rem;
@@ -361,12 +359,7 @@ code {
 }
 
 .sidebar-nav a::before {
-  content: counter(sec, decimal-leading-zero);
-  font-family: var(--mono);
-  font-size: 0.66rem;
-  color: var(--ink-3);
-  letter-spacing: 0.04em;
-  transition: color 0.15s;
+  display: none;
 }
 
 .sidebar-nav a:hover,

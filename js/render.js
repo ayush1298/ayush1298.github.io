@@ -24,9 +24,6 @@ function pageTitle(page) {
 }
 
 function renderIntro(site) {
-  const eyebrow = document.getElementById("intro-eyebrow");
-  if (eyebrow) eyebrow.textContent = site.intro.eyebrow || site.tagline || "";
-
   const name = document.getElementById("intro-name");
   if (name) {
     name.innerHTML = site.intro.nameDisplay || escapeHtml(site.name);
@@ -119,10 +116,6 @@ function renderExperience(items) {
           ? `<span class="exp-kind exp-kind--education">Education</span>`
           : "";
 
-      const bulletsHtml = (exp.bullets && exp.bullets.length)
-        ? `<ul class="exp-bullets">${exp.bullets.map(b => `<li>${escapeHtml(b)}</li>`).join("")}</ul>`
-        : "";
-
       return `
         <li class="exp-item exp-item--${side}">
           <div class="exp-medallion" style="--medallion-bg: ${bg}" aria-hidden="true">
@@ -133,7 +126,6 @@ function renderExperience(items) {
             <h3 class="exp-role">${escapeHtml(exp.role)}</h3>
             <p class="exp-org">${orgHtml}${kindTag}</p>
             <p class="exp-loc">${escapeHtml(exp.location)}</p>
-            ${bulletsHtml}
           </article>
         </li>`;
     })

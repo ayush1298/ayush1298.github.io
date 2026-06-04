@@ -1,14 +1,13 @@
 {
   "name": "Ayush Munot",
-  "tagline": "ML engineer · embeddings, retrieval, agents",
+  "tagline": "ML Engineer · Search, Embeddings, & Evaluations",
   "lastUpdated": "2026-05",
   "intro": {
-    "eyebrow": "Ayush Munot · IIT Kharagpur",
     "nameDisplay": "Ayush <em>Munot</em>",
-    "headline": "I build retrieval systems and the benchmarks that keep them honest.",
+    "headline": "ML Engineer specializing in representation learning, search, and evaluations. Core contributor to MTEB.",
     "paragraphs": [
-      "I'm a final-year student at IIT Kharagpur, finishing a B.Tech in Mechanical Engineering and an M.Tech in Financial Engineering, with a CSE minor and an AI micro-specialization. The actual work I care about lives in applied ML — retrieval, RAG, embeddings, computer vision, and the unglamorous engineering that makes any of it ship.",
-      "Most recently I've been interning at Fidelity Investments and Sourcegraph, and doing research with the AFAR Lab at Cambridge and IISc Bangalore. On the side I help maintain MTEB and I co-authored MAEB, a benchmark for audio embeddings that's currently under review."
+      "I am an ML Engineer focused on representation learning, search, and evaluation. I am a final-year student at IIT Kharagpur, pursuing a B.Tech in Mechanical Engineering and an M.Tech in Financial Engineering, with a Computer Science minor and an AI micro-specialization.",
+      "Most recently, I have built retrieval pipelines for Cody at Sourcegraph, worked on financial AI solutions at Fidelity Investments, and conducted vision-language research with the AFAR Lab at the University of Cambridge and IISc Bangalore. I help maintain MTEB (Massive Text Embedding Benchmark) as a core contributor, and co-authored MAEB (Multilingual Audio Embedding Benchmark)."
     ]
   },
   "homeSections": [
