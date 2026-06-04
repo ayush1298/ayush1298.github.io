@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#f4ede0"/>
-  <rect x="1" y="1" width="30" height="30" rx="5" fill="none" stroke="#d9cdb6" stroke-width="0.5"/>
-  <text x="16" y="24" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-style="italic" font-weight="400" fill="#a13e10">a.</text>
+  <circle cx="10" cy="16" r="3.5" fill="#a13e10"/>
+  <circle cx="22" cy="10" r="3.5" fill="#d4754a"/>
+  <circle cx="22" cy="22" r="3.5" fill="#d4754a"/>
+  <line x1="10" y1="16" x2="22" y2="10" stroke="#a13e10" stroke-width="1.5" opacity="0.7"/>
+  <line x1="10" y1="16" x2="22" y2="22" stroke="#a13e10" stroke-width="1.5" opacity="0.7"/>
+  <line x1="22" y1="10" x2="22" y2="22" stroke="#d4754a" stroke-width="1.5" opacity="0.7"/>
 </svg>

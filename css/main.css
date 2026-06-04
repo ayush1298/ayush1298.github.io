@@ -1387,16 +1387,16 @@ code {
   margin: 0;
   padding: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
+  flex-wrap: nowrap;
+  gap: 0.3rem;
 }
 
 .icon-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
+  width: 1.8rem;
+  height: 1.8rem;
   color: var(--ink-2);
   background: transparent;
   border: 1px solid var(--rule);
@@ -1406,9 +1406,10 @@ code {
 }
 
 .icon-link svg {
-  width: 0.95rem;
-  height: 0.95rem;
+  width: 0.85rem;
+  height: 0.85rem;
   display: block;
+  pointer-events: none;
 }
 
 .icon-link:hover {
