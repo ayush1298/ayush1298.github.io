@@ -17,7 +17,7 @@ export function renderSiteHeader(site, activePage) {
 
   mount.innerHTML = `
     <div class="site-header">
-      <a class="site-brand" href="#" data-page="home">${escapeHtml(site.brandShort || "AM")} <span class="site-brand__sep">—</span> Ayush Munot</a>
+      <a class="site-brand" href="#" data-page="home">Ayush Munot</a>
       <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="header-menu" aria-label="Toggle menu">
         <span class="nav-toggle__box">
           <span class="nav-toggle__inner"></span>
@@ -64,8 +64,6 @@ export function renderHomeSidebar(site) {
 
   mount.innerHTML = `
     <div class="sidebar-inner">
-      <span class="sidebar-mark" aria-hidden="true">${escapeHtml(site.markGlyph || "a.")}</span>
-
       <nav class="sidebar-nav" aria-label="On this page">
         <ol>${sectionLinks}</ol>
       </nav>

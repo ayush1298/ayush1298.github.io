@@ -42,16 +42,6 @@ function renderIntro(site) {
       .join("");
   }
 
-  const highlights = document.getElementById("intro-highlights");
-  if (highlights) {
-    highlights.innerHTML = (site.intro.highlights || [])
-      .map(
-        (h) =>
-          `<div class="facts-row"><dt>${escapeHtml(h.label)}</dt><dd>${escapeHtml(h.value)}</dd></div>`
-      )
-      .join("");
-  }
-
   const cv = document.getElementById("cv-link");
   if (cv && site.cvUrl) cv.href = site.cvUrl;
 }
