@@ -231,7 +231,7 @@ async function main() {
     // Listen to tab clicks and prevent default URL navigation
     document.addEventListener("click", (e) => {
       const target = e.target.closest("[data-page]");
-      if (!target) return;
+      if (!target || target.tagName.toLowerCase() === "body") return;
 
       e.preventDefault();
       const page = target.getAttribute("data-page");
