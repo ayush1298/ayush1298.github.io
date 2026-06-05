@@ -29,9 +29,6 @@ function renderIntro(site) {
     name.innerHTML = site.intro.nameDisplay || escapeHtml(site.name);
   }
 
-  const tagline = document.getElementById("intro-tagline");
-  if (tagline) tagline.textContent = site.intro.headline || "";
-
   const paragraphs = document.getElementById("intro-paragraphs");
   if (paragraphs) {
     paragraphs.innerHTML = (site.intro.paragraphs || [])
