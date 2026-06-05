@@ -5,9 +5,24 @@
     "url": "https://arxiv.org/abs/2602.16008"
   },
   {
+    "date": "May 2026",
+    "text": "Served as a reviewer for MMRAGI workshop at CVPR 2026.",
+    "url": "https://mmragi.github.io/mmragi/"
+  },
+  {
+    "date": "May 2026",
+    "text": "Serving as Program Committee member for AAAI/ACM AIES 2026.",
+    "url": "https://www.aies-conference.com/2026/"
+  },
+  {
+    "date": "May 2026",
+    "text": "Served as a reviewer for DL4C workshop in ICML 2026.",
+    "url": "https://dl4c.github.io/"
+  },
+  {
     "date": "Feb 2026",
     "text": "Serving as a reviewer for the Industry Track of ACL 2026.",
-    "url": null
+    "url": "https://2026.aclweb.org/calls/industry_track/"
   },
   {
     "date": "Jul 2025",
@@ -15,9 +30,14 @@
     "url": null
   },
   {
-    "date": "Jan 2025",
-    "text": "Core contributor to MTEB (Massive Text Embedding Benchmark).",
-    "url": "https://github.com/embeddings-benchmark/mteb"
+    "date": "May 2025",
+    "text": "Started AI Intern at Fidelity Investments.",
+    "url": null
+  },
+  {
+    "date": "May 2024",
+    "text": "Started ML Engineering intern at Sourcegraph.",
+    "url": null
   },
   {
     "date": "Dec 2023",

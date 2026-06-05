@@ -44,8 +44,21 @@ function renderNews(items) {
   const list = document.getElementById("news-list");
   if (!list) return;
 
+  const parseDate = (d) => {
+    if (!d) return new Date(0);
+    const parts = d.split(" ");
+    if (parts.length === 2) {
+      const month = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"].indexOf(parts[0].toLowerCase());
+      const year = parseInt(parts[1], 10);
+      if (month !== -1 && !isNaN(year)) {
+        return new Date(year, month);
+      }
+    }
+    return new Date(d);
+  };
+
   list.innerHTML = [...items]
-    .sort((a, b) => (b.date || "").localeCompare(a.date || ""))
+    .sort((a, b) => parseDate(b.date) - parseDate(a.date))
     .map((item) => {
       const text = item.url
         ? `<a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.text)}</a>`
