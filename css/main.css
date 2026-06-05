@@ -1633,85 +1633,136 @@ code {
    DARK MODE — warm dark journal
    ================================================= */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper:        #1a1816;
-    --paper-deep:   #231f1c;
-    --ink:          #e8e0d4;
-    --ink-2:        #b0a898;
-    --ink-3:        #7a7268;
-    --rule:         #3a342c;
-    --rule-soft:    #2e2924;
-    --accent:       #d4754a;
-    --accent-soft:  #a8654a;
-    --highlight:    #5a4a2a;
-    --selection:    #4a3a20;
-  }
+html[data-theme="dark"] {
+  --paper:        #1a1816;
+  --paper-deep:   #231f1c;
+  --ink:          #e8e0d4;
+  --ink-2:        #b0a898;
+  --ink-3:        #7a7268;
+  --rule:         #3a342c;
+  --rule-soft:    #2e2924;
+  --accent:       #d4754a;
+  --accent-soft:  #a8654a;
+  --highlight:    #5a4a2a;
+  --selection:    #4a3a20;
+}
 
-  body {
-    background-image: repeating-linear-gradient(
-      to bottom,
-      transparent 0 31px,
-      rgba(200, 180, 140, 0.03) 31px 32px
-    );
-  }
+html[data-theme="dark"] body {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0 31px,
+    rgba(200, 180, 140, 0.03) 31px 32px
+  );
+}
 
-  /* Soften the grain in dark mode */
-  body::before {
-    opacity: 0.15;
-    mix-blend-mode: soft-light;
-  }
+/* Soften the grain in dark mode */
+html[data-theme="dark"] body::before {
+  opacity: 0.15;
+  mix-blend-mode: soft-light;
+}
 
-  /* Notebook rule on the side */
-  @media (min-width: 960px) {
-    body::after {
-      background: var(--rule);
-      opacity: 0.35;
-    }
+/* Notebook rule on the side */
+@media (min-width: 960px) {
+  html[data-theme="dark"] body::after {
+    background: var(--rule);
+    opacity: 0.35;
   }
+}
 
-  /* Sidebar now block */
-  .sidebar-now {
-    background: rgba(35, 31, 28, 0.65);
+/* Sidebar now block */
+html[data-theme="dark"] .sidebar-now {
+  background: rgba(35, 31, 28, 0.65);
+}
+
+/* Visitor map */
+html[data-theme="dark"] .visitor-map-wrap {
+  background: var(--paper);
+}
+
+html[data-theme="dark"] .visitor-map-wrap::before,
+html[data-theme="dark"] .visitor-map-wrap::after {
+  border-color: var(--ink-3);
+  opacity: 0.3;
+}
+
+/* Publication author highlight */
+html[data-theme="dark"] .pub-authors strong {
+  background: linear-gradient(transparent 60%, var(--highlight) 60%);
+}
+
+/* Experience medallion */
+html[data-theme="dark"] .exp-medallion {
+  box-shadow:
+    0 0 0 4px var(--paper),
+    0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* Icon links */
+html[data-theme="dark"] .icon-link:hover {
+  background: rgba(212, 117, 74, 0.1);
+}
+
+/* Load error */
+html[data-theme="dark"] .load-error {
+  color: #e8a090;
+  background: #2e1a14;
+}
+
+/* Code blocks */
+html[data-theme="dark"] code {
+  background: var(--paper-deep);
+}
+
+/* =================================================
+   THEME TOGGLE
+   ================================================= */
+
+.theme-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  margin-left: 0.75rem;
+  color: var(--ink-2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s, transform 0.15s;
+  vertical-align: middle;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+  transform: rotate(15deg);
+}
+
+.theme-toggle svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+html[data-theme="dark"] .theme-toggle .moon-icon { display: none; }
+html[data-theme="dark"] .theme-toggle .sun-icon { display: block; }
+html[data-theme="light"] .theme-toggle .sun-icon { display: none; }
+html[data-theme="light"] .theme-toggle .moon-icon { display: block; }
+
+@media (min-width: 721px) {
+  .header-menu {
+    display: flex;
+    align-items: center;
   }
+}
 
-  /* Visitor map */
-  .visitor-map-wrap {
-    background: var(--paper);
+@media (max-width: 720px) {
+  .header-menu.is-open {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
-
-  .visitor-map-wrap::before,
-  .visitor-map-wrap::after {
-    border-color: var(--ink-3);
-    opacity: 0.3;
-  }
-
-  /* Publication author highlight */
-  .pub-authors strong {
-    background: linear-gradient(transparent 60%, var(--highlight) 60%);
-  }
-
-  /* Experience medallion */
-  .exp-medallion {
-    box-shadow:
-      0 0 0 4px var(--paper),
-      0 2px 6px rgba(0, 0, 0, 0.25);
-  }
-
-  /* Icon links */
-  .icon-link:hover {
-    background: rgba(212, 117, 74, 0.1);
-  }
-
-  /* Load error */
-  .load-error {
-    color: #e8a090;
-    background: #2e1a14;
-  }
-
-  /* Code blocks */
-  code {
-    background: var(--paper-deep);
+  .theme-toggle {
+    margin-left: 0;
+    padding: 0.5rem 0;
   }
 }
 

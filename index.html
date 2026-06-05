@@ -3,6 +3,12 @@
 
 <head>
   <meta charset="UTF-8" />
+  <script>
+    (function () {
+      const theme = localStorage.getItem("theme") || "dark";
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Ayush Munot — ML engineer at IIT Kharagpur. Embeddings, retrieval, agents." />
   <title>Ayush Munot</title>
@@ -115,8 +121,9 @@
                     const container = document.getElementById('map-container');
                     if (!container) return;
 
-                    // Detect dark mode
-                    const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    // Detect theme
+                    const currentTheme = localStorage.getItem("theme") || "dark";
+                    const isDark = currentTheme === "dark";
 
                     // Match site's design system color variables
                     // Light mode: paper = f4ede0, paper-deep = ecdfc9, ink = 1d1c1a, accent = a13e10

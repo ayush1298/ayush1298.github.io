@@ -25,10 +25,46 @@ export function renderSiteHeader(site, activePage) {
       </button>
       <div class="header-menu" id="header-menu">
         <nav class="header-pages" aria-label="Pages">${pageLinks}</nav>
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </button>
       </div>
     </div>`;
 
   initMobileMenu();
+
+  const toggle = document.getElementById("theme-toggle");
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      const current = document.documentElement.getAttribute("data-theme") || "dark";
+      const next = current === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+
+      // Dynamically reload the map script if on the homepage
+      const mapContainer = document.getElementById("map-container");
+      if (mapContainer) {
+        mapContainer.innerHTML = "";
+        const isDark = next === "dark";
+        const oceanColor = isDark ? "1a1816" : "f4ede0";
+        const landColor = isDark ? "3a342c" : "ecdfc9";
+        const markerColor = isDark ? "d4754a" : "a13e10";
+        const textColor = isDark ? "e8e0d4" : "1d1c1a";
+
+        let width = Math.round(mapContainer.getBoundingClientRect().width) || 600;
+        width = width - 24;
+        if (width < 280) width = 280;
+        if (width > 680) width = 680;
+
+        const script = document.createElement("script");
+        script.type = "text/javascript";
+        script.id = "mapmyvisitors";
+        script.src = `https://mapmyvisitors.com/map.js?cl=${landColor}&w=${width}&t=tt&d=UozTdHdb3WU-yTGa9a5rIt-U1u8z_sS9tYrDAXk4HGw&co=${oceanColor}&cmo=${markerColor}&cmn=ff5353&ct=${textColor}`;
+        mapContainer.appendChild(script);
+      }
+    });
+  }
 }
 
 export function renderHomeSidebar(site) {
