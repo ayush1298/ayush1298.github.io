@@ -20,6 +20,13 @@
   ],
   "articles": [
     {
+      "title": "Inside vLLM: Anatomy of a High-Throughput LLM Inference System",
+      "author": "vLLM",
+      "year": "2025",
+      "note": "Inside architure of vLLM",
+      "url": "https://vllm.ai/blog/2025-09-05-anatomy-of-vllm"
+    },
+    {
       "title": "LLM Inference: Continuous Batching",
       "author": "Hugging Face / vLLM",
       "year": "2023",
