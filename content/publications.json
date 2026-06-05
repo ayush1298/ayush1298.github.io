@@ -11,8 +11,24 @@
   },
   {
     "year": "2026",
-    "title": "DiffusedDINO: Fine-Grained Visual Perception for Puzzle Solving via DINO",
-    "authors": "Ayush Sunil Munot et al.",
+    "title": "MVEB: Massive Video Embedding Benchmark",
+    "authors": "Adnan El Assadi, Roman Solomatin, Isaac Chung, Chenghao Xiao, Deep Shah, Shriya Sudhakar, Ayush Sunil Munot, Márton Kardos, Niklas Muennighoff, Kenneth Enevoldsen",
+    "venue": "Under review, EMNLP 2026",
+    "links": [
+      { "label": "PDF", "url": "assets/MVEB.pdf" }
+    ]
+  },
+  {
+    "year": "2026",
+    "title": "SurakshaEval: An Indic Safety Benchmark for Multilingual LLMs",
+    "authors": "Debopriyo Banerjee, Kapil Rajesh Kavitha, Angana Borah, Xudong Han, Yuxia Wang, Parameswari Krishnamurthy, Utkarsh Agarwal, Atharva Kulkarni, Swaran Lata, Ayush Munot, Dhruv Sahnan, Aaryamonvikram Singh, Preslav Nakov, Monojit Choudhury",
+    "venue": "Under review, AIES 2026",
+    "links": []
+  },
+  {
+    "year": "2026",
+    "title": "DIFFUSEDDINO: Enhancing Fine-Grained Visual Perception for Puzzle Solving with DINO and Diffusion",
+    "authors": "Harsha Patnala, Debopriyo Banerjee, Ayush Sunil Munot, Somak Aditya",
     "venue": "Under review, NeurIPS 2026",
     "links": []
   }
