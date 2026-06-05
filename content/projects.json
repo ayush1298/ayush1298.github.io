@@ -11,6 +11,39 @@
     "featured": true
   },
   {
+    "year": "2026",
+    "title": "Regime-Aware Portfolio Optimization",
+    "role": "Self-project",
+    "description": "Deep learning framework for portfolio construction and correlation optimization. Uses network-based representation learning to model market regimes and optimize asset allocations under varying risk scenarios.",
+    "tags": ["Deep Learning", "Graph Networks", "Portfolio Optimization", "Quantitative Finance"],
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/ayush1298/Regime-Aware-Portfolio-Optimization-using-Deep-Co-investment-Networks" }
+    ],
+    "featured": true
+  },
+  {
+    "year": "2026",
+    "title": "DeepGLSTM: Drug-Target Binding Prediction",
+    "role": "Self-project",
+    "description": "Graph-based Deep Learning model utilizing LSTM and Graph Neural Networks (GNNs) for predicting drug-target binding affinity (DTA) to assist in virtual screening and drug discovery pipelines.",
+    "tags": ["Deep Learning", "GNN", "LSTM", "Bioinformatics"],
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/ayush1298/DeepGLSTM" }
+    ],
+    "featured": false
+  },
+  {
+    "year": "2026",
+    "title": "Multi-Agent Simulation for Dealer Markets",
+    "role": "Self-project",
+    "description": "Multi-agent simulation of dealer markets designed to model market-making behavior. Implements reinforcement learning algorithms for pricing, inventory management, and optimal hedging strategies.",
+    "tags": ["Reinforcement Learning", "Multi-Agent Systems", "Quantitative Finance", "Market Making"],
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/ayush1298/Multi-Agent-Simulation-for-Pricing-and-Hedging-in-a-Dealer-Market" }
+    ],
+    "featured": false
+  },
+  {
     "year": "2025",
     "title": "Multi-Agent AI for Interactive Physics Simulations",
     "role": "Self-project",
@@ -20,6 +53,28 @@
       { "label": "GitHub", "url": "https://github.com/ayush1298/AI-Simulator" }
     ],
     "featured": true
+  },
+  {
+    "year": "2025",
+    "title": "HiringSight: AI Hiring Intelligence",
+    "role": "Self-project",
+    "description": "Intelligent hiring platform leveraging AI pipelines to parse resumes, perform semantic matching, and provide data-driven insights for candidate evaluation.",
+    "tags": ["AI Agents", "Resume Parsing", "Semantic Matching", "Node.js"],
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/ayush1298/HiringSight-AI-Powered-Hiring-Intelligence-Platform" }
+    ],
+    "featured": false
+  },
+  {
+    "year": "2025",
+    "title": "Market Microstructure & Order Book Dynamics",
+    "role": "Self-project",
+    "description": "Research and simulation project exploring limit order book dynamics, market microstructure noise, order flow toxicity (VPIN), and high-frequency trading simulation.",
+    "tags": ["Market Microstructure", "Order Book", "High-Frequency Trading", "Quantitative Finance"],
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/ayush1298/Market-Microstructure-Project" }
+    ],
+    "featured": false
   },
   {
     "year": "2023",
