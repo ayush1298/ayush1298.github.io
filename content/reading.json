@@ -21,39 +21,41 @@
   ],
   "articles": [
     {
-      "title": "MTEB: Massive Text Embedding Benchmark",
-      "author": "Muennighoff et al.",
+      "title": "LLM Inference: Continuous Batching",
+      "author": "Hugging Face / vLLM",
       "year": "2023",
-      "note": "Foundation for the embedding evaluation ecosystem I contribute to.",
-      "url": "https://arxiv.org/abs/2210.07316"
+      "note": "Examines continuous batching, a key optimization for maximizing LLM serving throughput.",
+      "url": "https://huggingface.co/blog/continuous_batching"
     },
     {
-      "title": "MAEB: Massive Audio Embedding Benchmark",
-      "author": "El Assadi et al.",
+      "title": "LLM Performance Series: Request Queueing",
+      "author": "TNG Technology Consulting",
+      "year": "2024",
+      "note": "In-depth analysis of queuing latency and scheduling dynamics under heavy concurrent LLM traffic.",
+      "url": "https://huggingface.co/blog/tngtech/llm-performance-request-queueing"
+    },
+    {
+      "title": "LLM Performance: Prefill, Decode & Concurrent Requests",
+      "author": "TNG Technology Consulting",
+      "year": "2024",
+      "note": "Breakdown of the execution phases of LLM generation and handling resource constraints.",
+      "url": "https://huggingface.co/blog/tngtech/llm-performance-prefill-decode-concurrent-requests"
+    }
+  ],
+  "interview_blogs": [
+    {
+      "title": "How to Land a Job at a Frontier Lab",
+      "author": "Vlad Feinberg",
       "year": "2026",
-      "note": "Co-authored; extends MTEB to audio embeddings at scale.",
-      "url": "https://arxiv.org/abs/2602.16008"
+      "note": "Detailed roadmap and preparation advice for interviewing at top AI research institutions.",
+      "url": "https://vladfeinberg.com/2026/05/10/how-to-land-a-job-at-a-frontier-lab.html"
     },
     {
-      "title": "Emerging Properties in Self-Supervised Vision Transformers (DINO)",
-      "author": "Caron et al.",
-      "year": "2021",
-      "note": "The core DINO self-supervised ViT paper—lays the foundation for our DiffusedDINO research.",
-      "url": "https://arxiv.org/abs/2104.14294"
-    },
-    {
-      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
-      "author": "Lewis et al.",
-      "year": "2020",
-      "note": "Seminal paper on combining parametric and non-parametric memory for RAG tasks.",
-      "url": "https://arxiv.org/abs/2005.11401"
-    },
-    {
-      "title": "Attention Is All You Need",
-      "author": "Vaswani et al.",
-      "year": "2017",
-      "note": "The foundational paper introducing the Transformer architecture.",
-      "url": "https://arxiv.org/abs/1706.03762"
+      "title": "Interviews: 2025 ML Research Engineer (UK)",
+      "author": "asmekal",
+      "year": "2025",
+      "note": "Chronicle of interview prep and stages for European ML/Research roles.",
+      "url": "https://asmekal.github.io/blog/posts/interviews-2025-ml-research-engineer-uk"
     }
   ]
 }

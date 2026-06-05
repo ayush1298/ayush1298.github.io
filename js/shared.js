@@ -89,6 +89,18 @@ export function renderReading(data) {
     )
     .join("");
 
+  const interviewHtml = (data.interview_blogs || [])
+    .map((a) => {
+      const title = `<a href="${escapeHtml(a.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(a.title)}</a>`;
+      return `
+        <li class="read-item">
+          <p class="read-line">${title}</p>
+          <p class="read-meta">${escapeHtml(a.author)} · ${escapeHtml(a.year)}</p>
+          ${a.note ? `<p class="read-note">${escapeHtml(a.note)}</p>` : ""}
+        </li>`;
+    })
+    .join("");
+
   fullEl.innerHTML = `
     <div class="reading-block">
       <h2 class="reading-label">Blog &amp; interview repos</h2>
@@ -107,7 +119,12 @@ export function renderReading(data) {
             </li>`;
         })
         .join("")}</ul>
-    </div>`;
+    </div>
+    ${interviewHtml ? `
+    <div class="reading-block">
+      <h2 class="reading-label">Job &amp; Interview Guides</h2>
+      <ul class="read-list read-list--full">${interviewHtml}</ul>
+    </div>` : ""}`;
 }
 
 function projectCard(project, featured = false) {
