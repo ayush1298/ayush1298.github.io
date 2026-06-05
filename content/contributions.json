@@ -4,44 +4,92 @@
     {
       "name": "MTEB (Massive Text Embedding Benchmark)",
       "role": "Core contributor",
-      "description": "Community benchmark for text, image, and audio embedding models. I contribute features, fixes, and evaluations upstream—98+ merged PRs on embeddings-benchmark/mteb.",
+      "description": "Community benchmark for text, image, and audio embedding models. I contribute features, fixes, and evaluations upstream—84+ pull requests on embeddings-benchmark/mteb.",
       "projectUrl": "https://github.com/embeddings-benchmark/mteb",
       "prs": [
         {
-          "title": "Test to ensure input_column works for all modalities",
-          "url": "https://github.com/embeddings-benchmark/mteb/pull/4637",
-          "date": "2025",
-          "summary": "Multimodal task coverage for audio/image/text input columns."
-        },
-        {
-          "title": "Refactor queries and document dataloader to allow multiple modalities",
-          "url": "https://github.com/embeddings-benchmark/mteb/pull/4232",
-          "date": "2025",
-          "summary": "Dataloader changes for cross-modal evaluation."
-        },
-        {
-          "title": "Added embedding parameter value for image and audio models",
-          "url": "https://github.com/embeddings-benchmark/mteb/pull/4167",
-          "date": "2025",
-          "summary": "Metadata for image/audio model runs on the leaderboard."
-        },
-        {
-          "title": "feat: Add tracking of run settings",
-          "url": "https://github.com/embeddings-benchmark/mteb/pull/4677",
-          "date": "2025",
-          "summary": "Reproducibility for benchmark submissions."
+          "title": "Add hybrid models in MTEB",
+          "url": "https://github.com/embeddings-benchmark/mteb/pull/4706",
+          "date": "2026",
+          "summary": "Support for hybrid (dense + sparse fusion) embedding models."
         },
         {
           "title": "Load aggregated results from task results",
           "url": "https://github.com/embeddings-benchmark/mteb/pull/4719",
           "date": "2026",
-          "summary": "Leaderboard aggregation pipeline (open)."
+          "summary": "Leaderboard aggregation pipeline."
         },
         {
-          "title": "Add hybrid models in MTEB",
-          "url": "https://github.com/embeddings-benchmark/mteb/pull/4706",
+          "title": "feat: Add tracking of run settings",
+          "url": "https://github.com/embeddings-benchmark/mteb/pull/4677",
           "date": "2026",
-          "summary": "Support for hybrid embedding models (open)."
+          "summary": "Reproducibility and telemetry for benchmark submissions."
+        },
+        {
+          "title": "feat: Add evaluation runtime for all models",
+          "url": "https://github.com/embeddings-benchmark/mteb/pull/4639",
+          "date": "2026",
+          "summary": "Enables tracking execution time and speed benchmarks for embedding models."
+        },
+        {
+          "title": "fix: Make ModelMeta hashable",
+          "url": "https://github.com/embeddings-benchmark/mteb/pull/4315",
+          "date": "2026",
+          "summary": "Refactored core metadata classes to support hashing and caching mechanisms."
+        },
+        {
+          "title": "Refactor queries and document dataloader to allow multiple modalities",
+          "url": "https://github.com/embeddings-benchmark/mteb/pull/4232",
+          "date": "2026",
+          "summary": "Dataloader changes for cross-modal evaluation."
+        },
+        {
+          "title": "feat: Add submit_results to ResultsCache",
+          "url": "https://github.com/embeddings-benchmark/mteb/pull/4239",
+          "date": "2026",
+          "summary": "Automated result submission workflow for leaderboard submissions."
+        },
+        {
+          "title": "Added embedding parameter value for image and audio models",
+          "url": "https://github.com/embeddings-benchmark/mteb/pull/4167",
+          "date": "2026",
+          "summary": "Metadata for image/audio model runs on the leaderboard."
+        },
+        {
+          "title": "fix: Make `mteb.get_model` compatible with `CrossEncoders`",
+          "url": "https://github.com/embeddings-benchmark/mteb/pull/3988",
+          "date": "2026",
+          "summary": "Ensured mteb.get_model is fully compatible with CrossEncoder models for reranking evaluations."
+        },
+        {
+          "title": "fix: Update metadata to include active parameter",
+          "url": "https://github.com/embeddings-benchmark/mteb/pull/3837",
+          "date": "2025",
+          "summary": "Added active parameter attributes to model metadata for better run configuration tracking."
+        },
+        {
+          "title": "Add filter for model type",
+          "url": "https://github.com/embeddings-benchmark/mteb/pull/3799",
+          "date": "2025",
+          "summary": "Added model-type filters (dense, sparse, late-interaction) for embedding selection."
+        },
+        {
+          "title": "fix: Add model_type in ModelMeta",
+          "url": "https://github.com/embeddings-benchmark/mteb/pull/3751",
+          "date": "2025",
+          "summary": "Added model-type metadata categorization for benchmark models."
+        },
+        {
+          "title": "Add model specific dependencies",
+          "url": "https://github.com/embeddings-benchmark/mteb/pull/2424",
+          "date": "2024",
+          "summary": "Isolated and resolved model-specific python dependency loading in benchmark pipelines."
+        },
+        {
+          "title": "fix: Added Filter Modality",
+          "url": "https://github.com/embeddings-benchmark/mteb/pull/2262",
+          "date": "2024",
+          "summary": "Introduced modality-based filtering (text/image/audio) to help users query models for specific modalities."
         }
       ]
     }
