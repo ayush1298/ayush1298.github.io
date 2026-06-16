@@ -15,7 +15,8 @@
     "authors": "Adnan El Assadi, Roman Solomatin, Isaac Chung, Chenghao Xiao, Deep Shah, Shriya Sudhakar, Ayush Sunil Munot, Márton Kardos, Niklas Muennighoff, Kenneth Enevoldsen",
     "venue": "Under review, EMNLP 2026",
     "links": [
-      { "label": "PDF", "url": "assets/MVEB.pdf" }
+      { "label": "arXiv", "url": "https://arxiv.org/pdf/2606.14958" },
+      { "label": "MTEB", "url": "https://github.com/embeddings-benchmark/mteb" }
     ]
   },
   {
