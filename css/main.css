@@ -1188,10 +1188,11 @@ html[data-theme="aurora"] body::before {
 @media (min-width: 960px) {
   body::after,
   html[data-theme="dark"] body::after {
-    background: linear-gradient(90deg, transparent 0, transparent 25.25%, var(--rule) 25.25%, var(--rule) calc(25.25% + 1px), transparent calc(25.25% + 1px));
+    content: none;
   }
 
-  .sidebar-inner { padding-right: 0.55rem; }
+  .sidebar-inner { padding-right: 0; }
+  .sidebar-block { transform: translateX(-0.75rem); }
 }
 
 /* ---------- Contributions ---------- */
