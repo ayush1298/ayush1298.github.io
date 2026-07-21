@@ -1,11 +1,11 @@
 {
   "name": "Ayush Munot",
   "tagline": "ML Engineer · Search, Embeddings, & Evaluations",
-  "lastUpdated": "2026-05",
+  "lastUpdated": "2026-07",
   "intro": {
     "nameDisplay": "Ayush <em>Munot</em>",
     "paragraphs": [
-      "I am an ML Engineer and researcher interested in representation learning, retrieval, LLMs, and AI agents. I graduated from IIT Kharagpur, India, with an Integrated Master's Degree (B.Tech in Mechanical Engineering and M.Tech in Financial Engineering), along with a Minor in Computer Science and a Micro-Specialization in AI.",
+      "I am a Junior AI Researcher at Domyn and an ML Engineer interested in representation learning, retrieval, LLMs, and AI agents. I graduated from IIT Kharagpur, India, with an Integrated Master's Degree (B.Tech in Mechanical Engineering and M.Tech in Financial Engineering), along with a Minor in Computer Science and a Micro-Specialization in AI.",
       "My work focuses on building and evaluating intelligent systems. I have worked on retrieval and code intelligence at Sourcegraph, financial AI at Fidelity Investments, and human-centered AI research at the University of Cambridge and IISc Bangalore. I am a core contributor to MTEB (Massive Text Embedding Benchmark), with a particular interest in evaluation, reasoning, post-training, and scalable AI systems."
     ]
   },
