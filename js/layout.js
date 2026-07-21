@@ -85,7 +85,7 @@ export function renderHomeSidebar(site) {
       const target = external ? ' target="_blank" rel="noopener noreferrer"' : "";
       return `
         <li>
-          <a class="icon-link" href="${escapeHtml(l.url)}"${target}
+          <a class="icon-link icon-link--${escapeHtml(l.type)}" href="${escapeHtml(l.url)}"${target}
              aria-label="${escapeHtml(l.label)}"
              title="${escapeHtml(l.display || l.label)}">
             ${iconFor(l.type)}
