@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <script>
     (function () {
-      const theme = localStorage.getItem("theme") || "dark";
+      const theme = localStorage.getItem("theme") || "aurora";
       document.documentElement.setAttribute("data-theme", theme);
     })();
   </script>
@@ -122,16 +122,17 @@
                     if (!container) return;
 
                     // Detect theme
-                    const currentTheme = localStorage.getItem("theme") || "dark";
-                    const isDark = currentTheme === "dark";
+                    const currentTheme = localStorage.getItem("theme") || "aurora";
+                    const mapPalette = {
+                      light: { ocean: 'f6f8fc', land: 'dfe7f5', marker: '3c5cff', text: '172033' },
+                      dark: { ocean: '0b1020', land: '24314b', marker: '8ca6ff', text: 'f2f5fb' },
+                      aurora: { ocean: '091426', land: '163a54', marker: '57e6c2', text: 'eaf7ff' }
+                    }[currentTheme] || { ocean: '091426', land: '163a54', marker: '57e6c2', text: 'eaf7ff' };
 
-                    // Match site's design system color variables
-                    // Light mode: paper = f4ede0, paper-deep = ecdfc9, ink = 1d1c1a, accent = a13e10
-                    // Dark mode: paper = 1a1816, paper-deep = 231f1c, ink = e8e0d4, accent = d4754a
-                    const oceanColor = isDark ? '1a1816' : 'f4ede0';
-                    const landColor = isDark ? '3a342c' : 'ecdfc9';
-                    const markerColor = isDark ? 'd4754a' : 'a13e10';
-                    const textColor = isDark ? 'e8e0d4' : '1d1c1a';
+                    const oceanColor = mapPalette.ocean;
+                    const landColor = mapPalette.land;
+                    const markerColor = mapPalette.marker;
+                    const textColor = mapPalette.text;
 
                     // Calculate parent width dynamically
                     let width = Math.round(container.getBoundingClientRect().width) || 600;

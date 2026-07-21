@@ -2185,3 +2185,199 @@ a { text-underline-offset: 3px; }
   .exp-medallion { width: 2.8rem; height: 2.8rem; }
   .project-card { grid-template-columns: 1fr; }
 }
+
+/* Aurora is the expressive default: a midnight, oceanic palette with teal light. */
+html[data-theme="aurora"] {
+  --paper: #091426;
+  --paper-deep: #10233b;
+  --ink: #eaf7ff;
+  --ink-2: #aec9d8;
+  --ink-3: #7194a9;
+  --rule: #21445d;
+  --rule-soft: #17344e;
+  --accent: #57e6c2;
+  --accent-soft: #43aee7;
+  --highlight: #174d58;
+  --selection: #205a73;
+}
+
+html[data-theme="aurora"] body {
+  background-image:
+    radial-gradient(ellipse at 5% 0%, rgba(68, 102, 255, 0.34), transparent 34rem),
+    radial-gradient(ellipse at 98% 26%, rgba(47, 218, 181, 0.20), transparent 26rem),
+    radial-gradient(ellipse at 55% 100%, rgba(42, 110, 210, 0.16), transparent 32rem),
+    linear-gradient(rgba(101, 196, 218, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(101, 196, 218, 0.06) 1px, transparent 1px);
+  background-size: auto, auto, auto, 42px 42px, 42px 42px;
+}
+
+html[data-theme="aurora"] body::before {
+  background: linear-gradient(125deg, rgba(157, 255, 235, 0.07), transparent 42%);
+}
+
+html[data-theme="aurora"] .sidebar-inner,
+html[data-theme="aurora"] .block--intro,
+html[data-theme="aurora"] .page-head,
+html[data-theme="aurora"] .news-line,
+html[data-theme="aurora"] .pub-item,
+html[data-theme="aurora"] .project-card,
+html[data-theme="aurora"] .contrib-block,
+html[data-theme="aurora"] .repo-card,
+html[data-theme="aurora"] .read-item {
+  background: rgba(10, 27, 49, 0.66);
+  border-color: rgba(128, 217, 232, 0.20);
+}
+
+html[data-theme="aurora"] .block--intro {
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.26), inset 0 1px rgba(185, 255, 247, 0.08);
+}
+
+html[data-theme="aurora"] .news-line:hover,
+html[data-theme="aurora"] .pub-item:hover,
+html[data-theme="aurora"] .exp-card:hover {
+  border-color: rgba(87, 230, 194, 0.58);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22);
+}
+
+/* A three-state control: aurora → light → dark. */
+.theme-toggle .aurora-icon { display: none; }
+html[data-theme="aurora"] .theme-toggle .sun-icon,
+html[data-theme="aurora"] .theme-toggle .moon-icon { display: none; }
+html[data-theme="aurora"] .theme-toggle .aurora-icon { display: block; }
+html[data-theme="light"] .theme-toggle .aurora-icon,
+html[data-theme="dark"] .theme-toggle .aurora-icon { display: none; }
+
+/* Contact controls and map use the same luminous accent family. */
+.icon-link {
+  position: relative;
+  overflow: hidden;
+  border-color: color-mix(in srgb, var(--accent) 25%, var(--rule));
+  background: color-mix(in srgb, var(--paper-deep) 76%, transparent);
+}
+.icon-link::before {
+  content: "";
+  position: absolute;
+  inset: auto -35% -62% auto;
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 32%, transparent);
+  transition: transform 0.25s ease;
+}
+.icon-link svg { position: relative; z-index: 1; }
+.icon-link:hover { color: var(--accent); border-color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, var(--paper-deep)); }
+.icon-link:hover::before { transform: scale(1.8); }
+
+.visitor-map-wrap {
+  padding: 1.15rem;
+  border-color: color-mix(in srgb, var(--accent) 28%, var(--rule));
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent) 8%, transparent), transparent 50%),
+    color-mix(in srgb, var(--paper) 78%, transparent);
+  box-shadow: 0 20px 50px rgba(10, 23, 52, 0.12);
+}
+.visitor-map-wrap::before,
+.visitor-map-wrap::after {
+  width: 2rem;
+  height: 2rem;
+  border-color: var(--accent);
+  opacity: 0.7;
+}
+.visitor-map-wrap img { border-radius: 0.55rem; mix-blend-mode: luminosity; opacity: 0.92; }
+html[data-theme="light"] .visitor-map-wrap img { mix-blend-mode: multiply; }
+
+/* Experience as an actual research-path tree, with links branching from a central spine. */
+.exp-list {
+  display: block;
+  padding: 0.55rem 0 0;
+  position: relative;
+}
+.exp-list::before {
+  display: block;
+  left: 1.55rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(transparent, var(--accent) 8%, var(--rule) 24%, var(--rule) 76%, transparent);
+  opacity: 0.8;
+}
+.exp-item {
+  display: grid;
+  grid-template-columns: 3.1rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 0 0 1.25rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.exp-item:last-child { padding-bottom: 0; }
+.exp-medallion {
+  position: relative;
+  z-index: 1;
+  width: 3.1rem;
+  height: 3.1rem;
+  border-radius: 0.9rem;
+  border-color: color-mix(in srgb, var(--accent) 38%, var(--rule));
+  box-shadow: 0 0 0 5px var(--paper), 0 8px 18px rgba(10, 23, 52, 0.14);
+}
+.exp-card {
+  position: relative;
+  padding: 1.05rem 1.1rem;
+  border: 1px solid var(--rule);
+  border-radius: 0.85rem;
+  background: color-mix(in srgb, var(--paper) 78%, transparent);
+  box-shadow: 0 10px 28px rgba(10, 23, 52, 0.06);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.exp-card:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--accent) 48%, var(--rule)); box-shadow: 0 18px 34px rgba(10, 23, 52, 0.12); }
+.exp-item::after {
+  display: block;
+  left: 3.1rem;
+  right: auto;
+  top: 1.55rem;
+  width: 1rem;
+  height: 2px;
+  background: var(--accent);
+  opacity: 0.7;
+}
+
+@media (min-width: 720px) {
+  .exp-list { padding: 0.8rem 0; }
+  .exp-list::before { left: 50%; width: 2px; }
+  .exp-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 5.5rem minmax(0, 1fr);
+    gap: 0;
+    align-items: start;
+    min-height: 5.5rem;
+    padding: 0 0 2.2rem;
+  }
+  .exp-medallion {
+    grid-column: 2;
+    justify-self: center;
+    width: 3.8rem;
+    height: 3.8rem;
+    border-radius: 1rem;
+  }
+  .exp-medallion img { width: 2.25rem; height: 2.25rem; }
+  .exp-card,
+  .exp-item--left .exp-card,
+  .exp-item--right .exp-card {
+    width: calc(100% - 1.35rem);
+    padding: 1.15rem 1.25rem;
+    text-align: left;
+  }
+  .exp-item--left .exp-card { grid-column: 1; justify-self: end; }
+  .exp-item--right .exp-card { grid-column: 3; justify-self: start; }
+  .exp-item--left .exp-org { justify-content: flex-start; }
+  .exp-item::after { top: 1.9rem; width: 1.35rem; height: 2px; }
+  .exp-item--left::after { left: auto; right: 50%; }
+  .exp-item--right::after { left: 50%; right: auto; }
+}
+
+@media (max-width: 540px) {
+  .exp-list::before { left: 1.35rem; }
+  .exp-item { grid-template-columns: 2.7rem minmax(0, 1fr); gap: 0.8rem; }
+  .exp-medallion { width: 2.7rem; height: 2.7rem; }
+  .exp-item::after { left: 2.7rem; top: 1.35rem; width: 0.8rem; }
+}

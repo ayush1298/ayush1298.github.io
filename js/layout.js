@@ -28,6 +28,7 @@ export function renderSiteHeader(site, activePage) {
         <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
           <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
           <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+          <svg class="aurora-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16c2.2-7 4.8-7 7-1 2.2-8 5-8 9-4"/><path d="M5 20h14"/></svg>
         </button>
       </div>
     </div>`;
@@ -37,8 +38,8 @@ export function renderSiteHeader(site, activePage) {
   const toggle = document.getElementById("theme-toggle");
   if (toggle) {
     toggle.addEventListener("click", () => {
-      const current = document.documentElement.getAttribute("data-theme") || "dark";
-      const next = current === "dark" ? "light" : "dark";
+      const current = document.documentElement.getAttribute("data-theme") || "aurora";
+      const next = { aurora: "light", light: "dark", dark: "aurora" }[current] || "aurora";
       document.documentElement.setAttribute("data-theme", next);
       localStorage.setItem("theme", next);
 
@@ -46,11 +47,11 @@ export function renderSiteHeader(site, activePage) {
       const mapContainer = document.getElementById("map-container");
       if (mapContainer) {
         mapContainer.innerHTML = "";
-        const isDark = next === "dark";
-        const oceanColor = isDark ? "1a1816" : "f4ede0";
-        const landColor = isDark ? "3a342c" : "ecdfc9";
-        const markerColor = isDark ? "d4754a" : "a13e10";
-        const textColor = isDark ? "e8e0d4" : "1d1c1a";
+        const mapPalette = {
+          light: { ocean: "f6f8fc", land: "dfe7f5", marker: "3c5cff", text: "172033" },
+          dark: { ocean: "0b1020", land: "24314b", marker: "8ca6ff", text: "f2f5fb" },
+          aurora: { ocean: "091426", land: "163a54", marker: "57e6c2", text: "eaf7ff" },
+        }[next];
 
         let width = Math.round(mapContainer.getBoundingClientRect().width) || 600;
         width = width - 24;
@@ -60,7 +61,7 @@ export function renderSiteHeader(site, activePage) {
         const script = document.createElement("script");
         script.type = "text/javascript";
         script.id = "mapmyvisitors";
-        script.src = `https://mapmyvisitors.com/map.js?cl=${landColor}&w=${width}&t=tt&d=UozTdHdb3WU-yTGa9a5rIt-U1u8z_sS9tYrDAXk4HGw&co=${oceanColor}&cmo=${markerColor}&cmn=ff5353&ct=${textColor}`;
+        script.src = `https://mapmyvisitors.com/map.js?cl=${mapPalette.land}&w=${width}&t=tt&d=UozTdHdb3WU-yTGa9a5rIt-U1u8z_sS9tYrDAXk4HGw&co=${mapPalette.ocean}&cmo=${mapPalette.marker}&cmn=ff5353&ct=${mapPalette.text}`;
         mapContainer.appendChild(script);
       }
     });
