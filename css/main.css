@@ -1748,15 +1748,26 @@ html[data-theme="light"] .visitor-map-wrap img { mix-blend-mode: multiply; }
   opacity: 0.7;
 }
 
-/* Wide screens: a horizontal timeline. Logos sit on the line; cards alternate
-   above and below it. Grid positions come from render.js as custom properties. */
+/* Wide screens: a horizontal, oldest-to-newest timeline that scrolls sideways.
+   Logos sit on the line; cards alternate above and below it. Grid positions come
+   from render.js as custom properties. */
 @media (min-width: 720px) {
   .exp-list {
     display: grid;
-    grid-template-columns: repeat(var(--exp-cols, 14), minmax(0, 1fr));
+    grid-template-columns: repeat(var(--exp-cols, 14), 4.6rem);
     grid-template-rows: auto 4.4rem auto;
-    padding: 0.5rem 0;
+    padding: 0.5rem 0 1rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in srgb, var(--accent) 45%, var(--rule)) transparent;
   }
+  /* Fade whichever edge has more timeline hidden behind it */
+  .exp-list.fade-right { mask-image: linear-gradient(90deg, #000 calc(100% - 4rem), transparent); }
+  .exp-list.fade-left { mask-image: linear-gradient(90deg, transparent, #000 4rem); }
+  .exp-list.fade-left.fade-right { mask-image: linear-gradient(90deg, transparent, #000 4rem, #000 calc(100% - 4rem), transparent); }
+  .exp-list::-webkit-scrollbar { height: 6px; }
+  .exp-list::-webkit-scrollbar-thumb { border-radius: 999px; background: color-mix(in srgb, var(--accent) 45%, var(--rule)); }
   .exp-list::before {
     position: static;
     grid-row: 2;
@@ -1764,7 +1775,7 @@ html[data-theme="light"] .visitor-map-wrap img { mix-blend-mode: multiply; }
     align-self: center;
     width: auto;
     height: 2px;
-    background: linear-gradient(90deg, transparent, var(--accent) 6%, var(--rule) 30%, var(--rule) 94%, transparent);
+    background: linear-gradient(90deg, transparent, var(--rule) 6%, var(--rule) 70%, var(--accent) 94%, transparent);
   }
   .exp-item { display: contents; }
   .exp-medallion {
@@ -1809,6 +1820,34 @@ html[data-theme="light"] .visitor-map-wrap img { mix-blend-mode: multiply; }
   }
   .exp-item--top::after { align-self: end; }
   .exp-item--bottom::after { align-self: start; }
+
+  .exp-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+  }
+  .exp-nav[hidden] { display: none; }
+  .exp-nav__btn {
+    width: 2.2rem;
+    height: 2.2rem;
+    border: 1px solid var(--rule);
+    border-radius: 50%;
+    background: none;
+    color: var(--ink-2);
+    font-size: 0.95rem;
+    cursor: pointer;
+  }
+  .exp-nav__btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+  .exp-nav__btn:disabled { opacity: 0.35; cursor: default; }
+}
+
+/* Narrow screens keep the vertical list, newest at the top */
+@media (max-width: 719px) {
+  .exp-list { display: flex; flex-direction: column-reverse; }
+  .exp-item:last-child { padding-bottom: 1.25rem; }
+  .exp-item:first-child { padding-bottom: 0; }
+  .exp-nav { display: none; }
 }
 
 @media (max-width: 540px) {

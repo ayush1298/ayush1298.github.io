@@ -11,6 +11,8 @@ const NEWS_VISIBLE = 6;
 const AUTHORS_VISIBLE = 3;
 const MY_NAME = /^Ayush\b/;
 
+const MONTHS = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+
 async function getSiteData() {
   if (cachedData) return cachedData;
   const [site, news, publications, experience, projects, contributions, reading] = await Promise.all([
@@ -55,7 +57,7 @@ function renderNews(items) {
     if (!d) return new Date(0);
     const parts = d.split(" ");
     if (parts.length === 2) {
-      const month = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"].indexOf(parts[0].toLowerCase());
+      const month = MONTHS.indexOf(parts[0].toLowerCase());
       const year = parseInt(parts[1], 10);
       if (month !== -1 && !isNaN(year)) {
         return new Date(year, month);
@@ -179,8 +181,16 @@ function renderExperience(items) {
   const list = document.getElementById("experience-list");
   if (!list) return;
 
-  list.style.setProperty("--exp-cols", 2 * items.length + 2);
-  list.innerHTML = items
+  // Oldest first, so the horizontal timeline reads left to right through time
+  const monthIndex = (d) => {
+    const [mon, year] = String(d || "").trim().split(/\s+/);
+    const m = MONTHS.indexOf((mon || "").slice(0, 3).toLowerCase());
+    return (parseInt(year, 10) || 0) * 12 + Math.max(m, 0);
+  };
+  const sorted = [...items].sort((a, b) => monthIndex(a.start) - monthIndex(b.start));
+
+  list.style.setProperty("--exp-cols", 2 * sorted.length + 2);
+  list.innerHTML = sorted
     .map((exp, i) => {
       const side = i % 2 === 0 ? "right" : "left";
       const org = exp.shortOrg || exp.organization;
@@ -200,9 +210,9 @@ function renderExperience(items) {
           ? `<span class="exp-kind exp-kind--education">Education</span>`
           : "";
 
-      // Horizontal timeline: two half-columns per item plus one spare at each end.
-      // Each medallion sits on its own pair; its card is centred on it, two items
-      // wide, and alternates above/below the line so neighbouring cards never collide.
+      // Horizontal timeline: two fixed-width half-columns per item plus one spare at
+      // each end. Each medallion sits on its own pair; its card is centred on it, two
+      // items wide, and alternates above/below the line so neighbours never collide.
       const pos = [
         `--medallion-col: ${2 * i + 2} / span 2`,
         `--card-col: ${2 * i + 1} / span 4`,
@@ -223,6 +233,43 @@ function renderExperience(items) {
         </li>`;
     })
     .join("");
+
+  setupExperienceScroll(list);
+}
+
+// Prev/next buttons for the horizontally scrolling timeline; they grey out at
+// either end and hide entirely when everything already fits.
+function setupExperienceScroll(list) {
+  list.parentElement.querySelector(".exp-nav")?.remove();
+  const nav = document.createElement("div");
+  nav.className = "exp-nav";
+  nav.innerHTML = `
+    <button type="button" class="exp-nav__btn" data-dir="-1" aria-label="Scroll timeline left">←</button>
+    <button type="button" class="exp-nav__btn" data-dir="1" aria-label="Scroll timeline right">→</button>`;
+  list.after(nav);
+
+  const [prev, next] = nav.querySelectorAll("button");
+  let startedAtEnd = false;
+  const update = () => {
+    const max = list.scrollWidth - list.clientWidth;
+    // Open on the newest entry (right end) the first time the timeline has a real width;
+    // it has none while the home view is hidden behind a subpage.
+    if (!startedAtEnd && max > 1) {
+      list.scrollLeft = max;
+      startedAtEnd = true;
+    }
+    nav.hidden = max <= 1;
+    prev.disabled = list.scrollLeft <= 1;
+    next.disabled = list.scrollLeft >= max - 1;
+    list.classList.toggle("fade-left", !prev.disabled);
+    list.classList.toggle("fade-right", !next.disabled);
+  };
+  nav.addEventListener("click", (e) => {
+    const btn = e.target.closest("button");
+    if (btn) list.scrollBy({ left: Number(btn.dataset.dir) * list.clientWidth * 0.6, behavior: "smooth" });
+  });
+  list.addEventListener("scroll", update, { passive: true });
+  new ResizeObserver(update).observe(list);
 }
 
 async function switchPage(page) {
