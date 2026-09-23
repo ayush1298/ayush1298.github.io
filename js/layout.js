@@ -11,13 +11,13 @@ export function renderSiteHeader(site, activePage) {
   const pageLinks = (site.pages || [])
     .map((item) => {
       const active = item.page === activePage ? ' aria-current="page"' : "";
-      return `<a href="#" data-page="${escapeHtml(item.page)}" class="header-link"${active}>${escapeHtml(item.label)}</a>`;
+      return `<a href="#${escapeHtml(item.page)}" data-page="${escapeHtml(item.page)}" class="header-link"${active}>${escapeHtml(item.label)}</a>`;
     })
     .join("");
 
   mount.innerHTML = `
     <div class="site-header">
-      <a class="site-brand" href="#" data-page="home"></a>
+      <a class="site-brand" href="./" data-page="home" aria-label="Home"></a>
       <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="header-menu" aria-label="Toggle menu">
         <span class="nav-toggle__box">
           <span class="nav-toggle__inner"></span>
@@ -136,16 +136,6 @@ export async function bootPage(activePage, loadContent) {
   if (activePage === "home") {
     renderHomeSidebar(site);
     initHomeSectionNav();
-  } else {
-    // Add a back link on subpages
-    const main = document.querySelector(".subpage");
-    if (main && !main.querySelector(".subpage-back")) {
-      const back = document.createElement("a");
-      back.className = "subpage-back";
-      back.href = "index.html";
-      back.textContent = "Home";
-      main.insertBefore(back, main.firstChild);
-    }
   }
 
   return site;

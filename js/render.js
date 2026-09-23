@@ -32,6 +32,20 @@ function pageTitle(page) {
   return { projects: "Projects", contributions: "Contributions", reading: "Reading" }[page] || page;
 }
 
+// Subpages live at #projects, #contributions and #reading. Any other hash (e.g. #news)
+// is a section of the home page.
+const SUBPAGES = ["projects", "contributions", "reading"];
+let currentPage = null;
+
+function pageFromHash() {
+  const hash = location.hash.slice(1);
+  return SUBPAGES.includes(hash) ? hash : "home";
+}
+
+function urlFor(page) {
+  return page === "home" ? location.pathname + location.search : `#${page}`;
+}
+
 function renderIntro(site) {
   const name = document.getElementById("intro-name");
   if (name) {
@@ -273,6 +287,10 @@ function setupExperienceScroll(list) {
 }
 
 async function switchPage(page) {
+  // Section links on the home page change the hash too; they only need to scroll
+  if (page === currentPage) return;
+  currentPage = page;
+
   try {
     const data = await getSiteData();
     
@@ -337,8 +355,10 @@ async function switchPage(page) {
       }
     }
 
-    // Scroll smoothly to top on tab switch
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // Returning to a home section (e.g. Back to #news) lands on it; otherwise start at the top
+    const section = page === "home" && location.hash && document.getElementById(location.hash.slice(1));
+    if (section) section.scrollIntoView();
+    else window.scrollTo({ top: 0 });
   } catch (err) {
     console.error(err);
     document.querySelector(".content-sheet, .subpage")?.insertAdjacentHTML(
@@ -360,24 +380,25 @@ async function main() {
     renderPublications(data.publications);
     renderExperience(data.experience);
 
-    // Listen to tab clicks and prevent default URL navigation
+    // Page links update the URL so pages can be shared, refreshed and reached with Back.
+    // Modified clicks (new tab, etc.) fall through to the browser.
     document.addEventListener("click", (e) => {
-      const target = e.target.closest("[data-page]");
-      if (!target || target.tagName.toLowerCase() === "body") return;
+      const target = e.target.closest("a[data-page]");
+      if (!target || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
 
       e.preventDefault();
       const page = target.getAttribute("data-page");
+      if (page === currentPage) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+      history.pushState(null, "", urlFor(page));
       switchPage(page);
     });
 
-    // Run router on first load (check if redirect requested)
-    const redirectPage = sessionStorage.getItem("spa_redirect");
-    if (redirectPage) {
-      sessionStorage.removeItem("spa_redirect");
-      switchPage(redirectPage);
-    } else {
-      switchPage("home");
-    }
+    window.addEventListener("popstate", () => switchPage(pageFromHash()));
+
+    switchPage(pageFromHash());
 
   } catch (err) {
     console.error(err);
