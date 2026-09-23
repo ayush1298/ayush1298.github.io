@@ -14,7 +14,10 @@
     "title": "SurakshaEval: An Indic Safety Benchmark for Multilingual LLMs",
     "authors": "Debopriyo Banerjee, Kapil Rajesh Kavitha, Angana Borah, Xudong Han, Yuxia Wang, Parameswari Krishnamurthy, Utkarsh Agarwal, Atharva Kulkarni, Swaran Lata, Ayush Munot, Dhruv Sahnan, Aaryamonvikram Singh, Preslav Nakov, Monojit Choudhury",
     "venue": "Accepted, AIES 2026",
-    "links": []
+    "links": [
+      { "label": "arXiv", "url": "https://arxiv.org/pdf/2608.07862" },
+      { "label": "AIES 2026", "url": "https://www.aies-conference.com/2026/" }
+    ]
   },
   {
     "year": "2026",
@@ -40,7 +43,6 @@
     "venue": "Under review, AAAI 2026",
     "links": [
       { "label": "arXiv", "url": "https://arxiv.org/abs/2609.07937" },
-      { "label": "Code", "url": "https://github.com/adityaSomak/TDDN" }
     ]
   },
   {
@@ -61,9 +63,9 @@
   },
   {
     "year": "2026",
-    "title": "MultiCulturalRiddle",
+    "title": "MultiCulturalRiddle: A Multicultural Benchmark of Riddles",
     "authors": "",
-    "venue": "Workshop paper, Accepted, MRL-EMNLP 2026",
+    "venue": "Workshop paper, Accepted, MRL workshop at EMNLP 2026",
     "links": []
   }
 ]
