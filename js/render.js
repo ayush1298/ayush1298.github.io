@@ -94,7 +94,7 @@ function renderPublications(items) {
       return `
         <li class="pub-item">
           <p class="pub-title">${escapeHtml(pub.title)}</p>
-          <p class="pub-authors">${authors}</p>
+          ${authors ? `<p class="pub-authors">${authors}</p>` : ""}
           <p class="pub-venue">${escapeHtml(pub.venue)}<span class="pub-year">${escapeHtml(pub.year)}</span></p>
           ${links ? `<div class="pub-links">${links}</div>` : ""}
         </li>`;

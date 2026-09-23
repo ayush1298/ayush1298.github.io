@@ -1,6 +1,23 @@
 [
   {
     "year": "2026",
+    "title": "MVEB: Massive Video Embedding Benchmark",
+    "authors": "Adnan El Assadi, Roman Solomatin, Isaac Chung, Chenghao Xiao, Deep Shah, Shriya Sudhakar, Ayush Sunil Munot, Márton Kardos, Niklas Muennighoff, Kenneth Enevoldsen",
+    "venue": "Accepted, EMNLP 2026 Findings",
+    "links": [
+      { "label": "arXiv", "url": "https://arxiv.org/pdf/2606.14958" },
+      { "label": "MTEB", "url": "https://github.com/embeddings-benchmark/mteb" }
+    ]
+  },
+  {
+    "year": "2026",
+    "title": "SurakshaEval: An Indic Safety Benchmark for Multilingual LLMs",
+    "authors": "Debopriyo Banerjee, Kapil Rajesh Kavitha, Angana Borah, Xudong Han, Yuxia Wang, Parameswari Krishnamurthy, Utkarsh Agarwal, Atharva Kulkarni, Swaran Lata, Ayush Munot, Dhruv Sahnan, Aaryamonvikram Singh, Preslav Nakov, Monojit Choudhury",
+    "venue": "Accepted, AIES 2026",
+    "links": []
+  },
+  {
+    "year": "2026",
     "title": "MAEB: Massive Audio Embedding Benchmark",
     "authors": "Adnan El Assadi, Isaac Chung, Chenghao Xiao, Roman Solomatin, Animesh Jha, Rahul Chand, Silky Singh, Kaitlyn Wang, Ali Sartaz Khan, Marc Moussa Nasser, Sufen Fong, Pengfei He, Alan Xiao, Ayush Sunil Munot, Aditya Shrivastava, Artem Gazizov, Niklas Muennighoff, Kenneth Enevoldsen",
     "venue": "Under review, NeurIPS 2026",
@@ -11,26 +28,42 @@
   },
   {
     "year": "2026",
-    "title": "MVEB: Massive Video Embedding Benchmark",
-    "authors": "Adnan El Assadi, Roman Solomatin, Isaac Chung, Chenghao Xiao, Deep Shah, Shriya Sudhakar, Ayush Sunil Munot, Márton Kardos, Niklas Muennighoff, Kenneth Enevoldsen",
-    "venue": "Under review, EMNLP 2026",
-    "links": [
-      { "label": "arXiv", "url": "https://arxiv.org/pdf/2606.14958" },
-      { "label": "MTEB", "url": "https://github.com/embeddings-benchmark/mteb" }
-    ]
-  },
-  {
-    "year": "2026",
-    "title": "SurakshaEval: An Indic Safety Benchmark for Multilingual LLMs",
-    "authors": "Debopriyo Banerjee, Kapil Rajesh Kavitha, Angana Borah, Xudong Han, Yuxia Wang, Parameswari Krishnamurthy, Utkarsh Agarwal, Atharva Kulkarni, Swaran Lata, Ayush Munot, Dhruv Sahnan, Aaryamonvikram Singh, Preslav Nakov, Monojit Choudhury",
-    "venue": "Accepted at AIES 2026",
+    "title": "Multilingual GSM-Symbolic: Determining capability transfer across languages?",
+    "authors": "",
+    "venue": "Under review, ICLR 2027",
     "links": []
   },
   {
     "year": "2026",
-    "title": "DIFFUSEDDINO: Enhancing Fine-Grained Visual Perception for Puzzle Solving with DINO and Diffusion",
+    "title": "TDDN: Text-aligned Diffused DINO Network for Puzzle Understanding",
     "authors": "Harsha Patnala, Debopriyo Banerjee, Ayush Sunil Munot, Somak Aditya",
-    "venue": "Under review, NeurIPS 2026",
+    "venue": "Under review, AAAI 2026",
+    "links": [
+      { "label": "arXiv", "url": "https://arxiv.org/abs/2609.07937" },
+      { "label": "Code", "url": "https://github.com/adityaSomak/TDDN" }
+    ]
+  },
+  {
+    "year": "2026",
+    "title": "BenchGuard: Verifying Reward Integrity in LLM Agent Evaluation",
+    "authors": "",
+    "venue": "Under review, USENIX Security '27",
+    "links": []
+  },
+  {
+    "year": "2026",
+    "title": "Last Translation Benchmark",
+    "authors": "",
+    "venue": "Workshop paper",
+    "links": [
+      { "label": "arXiv", "url": "https://arxiv.org/abs/2609.04173" }
+    ]
+  },
+  {
+    "year": "2026",
+    "title": "MultiCulturalRiddle",
+    "authors": "",
+    "venue": "Workshop paper, Accepted, MRL-EMNLP 2026",
     "links": []
   }
 ]
