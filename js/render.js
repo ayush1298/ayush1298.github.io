@@ -193,13 +193,13 @@ function renderExperience(items) {
   list.innerHTML = sorted
     .map((exp, i) => {
       const side = i % 2 === 0 ? "right" : "left";
-      const org = exp.shortOrg || exp.organization;
+      const org = exp.organization;
       const orgHtml = exp.url
         ? `<a href="${escapeHtml(exp.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(org)}</a>`
         : escapeHtml(org);
 
       const bg = exp.logoBg || "#1f3a64";
-      const initial = (exp.shortOrg || exp.organization || "?").trim().charAt(0).toUpperCase();
+      const initial = (exp.organization || "?").trim().charAt(0).toUpperCase();
       const logoImg = exp.logoUrl
         ? `<img src="${escapeHtml(exp.logoUrl)}" alt="" loading="lazy"
                  onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'exp-medallion__fallback',textContent:'${escapeHtml(initial)}'}))" />`
