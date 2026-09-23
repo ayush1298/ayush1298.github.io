@@ -67,18 +67,28 @@
     ]
   },
   {
-    "start": "Dec 2021",
-    "end": "May 2026",
+    "start": "May 2026",
+    "role": "Graduated",
     "organization": "IIT Kharagpur",
-    "role": "B.Tech (Mechanical Eng.) + M.Tech (Financial Eng.) · CSE minor · AI micro",
     "location": "Kharagpur, India",
     "url": "https://www.iitkgp.ac.in",
     "logoUrl": "assets/logos/iitkgp-ac-in-logo.png",
     "logoBg": "#5a3f2a",
     "kind": "education",
+    "detail": "B.Tech (Mechanical Eng.) + M.Tech (Financial Eng.) · CSE minor · AI micro",
     "bullets": [
       "CGPA: 8.95 / 10 — Computer Science minor and AI micro-specialization.",
       "Gold medal at Adobe Behaviour Simulation Challenge, Inter IIT Tech Meet 12.0."
     ]
+  },
+  {
+    "start": "Dec 2021",
+    "role": "Joined",
+    "organization": "IIT Kharagpur",
+    "location": "Kharagpur, India",
+    "url": "https://www.iitkgp.ac.in",
+    "logoUrl": "assets/logos/iitkgp-ac-in-logo.png",
+    "logoBg": "#5a3f2a",
+    "kind": "education"
   }
 ]

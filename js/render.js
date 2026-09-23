@@ -239,9 +239,10 @@ function renderExperience(items) {
             ${logoImg}
           </div>
           <article class="exp-card">
-            <p class="exp-when">${escapeHtml(exp.start)} — ${escapeHtml(exp.end)}</p>
+            <p class="exp-when">${escapeHtml(exp.start)}${exp.end ? ` — ${escapeHtml(exp.end)}` : ""}</p>
             <h3 class="exp-role">${escapeHtml(exp.role)}</h3>
             <p class="exp-org">${orgHtml}${kindTag}</p>
+            ${exp.detail ? `<p class="exp-detail">${escapeHtml(exp.detail)}</p>` : ""}
             <p class="exp-loc">${escapeHtml(exp.location)}</p>
           </article>
         </li>`;

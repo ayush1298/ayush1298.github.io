@@ -556,6 +556,14 @@ code {
   border-bottom-color: var(--accent);
 }
 
+.exp-detail {
+  margin: 0.3rem 0 0;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+
 .exp-loc {
   font-family: var(--sans);
   font-size: 0.8rem;
