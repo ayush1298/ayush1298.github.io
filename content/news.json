@@ -1,6 +1,11 @@
 [
   {
     "date": "Sep 2026",
+    "text": "MAEB: Massive Audio Embedding Benchmark was accepted at the NeurIPS 2026 Datasets & Benchmarks Track.",
+    "url": "https://arxiv.org/abs/2602.16008"
+  },
+  {
+    "date": "Sep 2026",
     "text": "MVEB: Massive Video Embedding Benchmark was accepted at EMNLP 2026 Findings.",
     "url": "https://arxiv.org/pdf/2606.14958"
   },
